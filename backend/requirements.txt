@@ -1,0 +1,9 @@
+flask
+psycopg2
+bcrypt
+flask_jwt_extended
+python-cas
+requests
+flask_mail
+flask_cors
+flask_session

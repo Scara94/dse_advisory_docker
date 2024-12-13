@@ -1,0 +1,117 @@
+// src/styles/custom.scss
+@import "bootstrap";
+
+// Definisci i colori
+$dark-blue: #4a4b4b; // Blu scuro
+$light-blue: #88BBD8; // Blu chiaro
+
+.navbar-light {
+  & {
+    background-color: $light-blue;
+  }
+  
+
+  .navbar-nav .nav-link {
+    color: $dark-blue;
+  }
+
+  .navbar-brand {
+    color: $dark-blue;
+  }
+}
+
+.card {
+  /*max-width: 800px;
+  width: 100%;*/
+  border-radius: 10px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+}
+
+/*
+.card-container {
+  display: flex;
+  justify-content: center;
+}
+*/
+
+.card-title {
+  font-weight: bold;
+}
+
+.card-text {
+  font-size: 16px;
+  line-height: 1.5;
+}
+/*
+.container {
+  max-width: 600px;
+  margin-top: 30px;
+}*/
+
+// Stili per i form
+.form-control {
+  color: $dark-blue; // Blu scuro per il testo
+}
+
+.form-control::placeholder {
+  color: $dark-blue; // Blu scuro per i placeholder
+}
+
+.form-label, .form-text {
+  color: $dark-blue; // Blu scuro per label e testo dei form
+}
+
+.btn-primary {
+  //@include button-variant($light-blue, darken($light-blue, 7.5%), darken($light-blue, 10%), lighten($light-blue,5%), lighten($light-blue, 10%), darken($light-blue,30%));
+  @include button-variant($light-blue, darken($light-blue, 7.5%), $dark-blue)
+}
+
+.btn-outline-primary {
+  @include button-outline-variant($light-blue, #222222, lighten($light-blue,5%), $light-blue);
+}
+
+.password-requirements{
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 10px;
+  padding-left: 20px;
+}
+
+.password-requirements li{
+  margin-bottom: 5px;
+}
+
+.table-custom {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse; /* Facciamo collassare i bordi */
+
+  th, td {
+    padding: 8px;
+    text-align: left;
+    overflow: auto;
+    position: relative;
+    border: none; /* Rimuove i bordi */
+  }
+
+  th {
+    resize: horizontal; /* Permette il ridimensionamento */
+    overflow: hidden;
+  }
+
+  & .resizer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 5px;
+    height: 100%;
+    cursor: col-resize;
+    user-select: none; /* Disabilita la selezione del testo */
+    background-color: transparent; /* Puoi renderlo visibile cambiando colore */
+  }
+}
+
+
+.tabs-fullwidth {
+  width: 100%;
+}
