@@ -1,7 +1,7 @@
-flask
+flask==2.3.0
 psycopg2
 bcrypt
-flask_jwt_extended
+flask_jwt_extended==4.4.4
 python-cas
 requests
 flask_mail

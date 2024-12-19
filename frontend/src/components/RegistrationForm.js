@@ -36,7 +36,7 @@ const RegistrationForm = () =>{
             setUserType(urlParams.get('userType'));            
 
             try {
-                const response = await axios.get(`/api/validate_token?token=${token}`);
+                const response = await axios.get(`http://127.0.0.1:5001/api/validate_token?token=${token}`);
                 if (response.data.success){
                     setUsername(response.data.username);
                 } else {

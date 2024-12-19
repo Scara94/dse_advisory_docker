@@ -14,4 +14,4 @@ EXPOSE 5001
 
 #CMD [ "flask", "run", "--host=0.0.0.0", "--port=5001" ]
 
-CMD [ "python", "app.py" ]
+CMD [ "python", "-u", "app.py" ]

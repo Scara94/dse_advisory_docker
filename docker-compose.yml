@@ -11,6 +11,8 @@ services:
       - backend/.env
     environment:
       - TZ=Europe/Rome
+    networks:
+      - app-network
     
   frontend:
     build:
@@ -22,3 +24,9 @@ services:
     #tty: true
     depends_on:
       - backend
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

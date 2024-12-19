@@ -32,7 +32,7 @@ const News = () => {
         sessionStorage.setItem('lastPage', '/news');
         const fetchCohorts = async () => {
             try {
-                const response = await axios.get('/api/cohorts');
+                const response = await axios.get('http://127.0.0.1:5001/api/cohorts');
                 setCohortList(response.data);
             } catch (error) {
                 setError('Failed to load cohorts');
@@ -70,7 +70,7 @@ const News = () => {
 
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.post('/api/add_news', formData, {
+            const response = await axios.post('http://127.0.0.1:5001/api/add_news', formData, {
                 headers: { 
                     Authorization: `Bearer ${token}`
                 }
@@ -95,7 +95,7 @@ const News = () => {
     const fetchAllNews = async () => {
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.get("/api/get_all_news", {
+            const response = await axios.get("http://127.0.0.1:5001/api/get_all_news", {
                 headers: { Authorization: `Bearer ${token}` },
             });
             const sortedNews = response.data.news_list.sort((a, b) => new Date(b.publication_date) - new Date(a.publication_date));
@@ -108,7 +108,7 @@ const News = () => {
     const handleDeleteNews = async (newsId) => {
         try {
             const token = localStorage.getItem('token');
-            await axios.patch(`/api/delete_news/${newsId}`, { is_deleted: true }, {
+            await axios.patch(`http://127.0.0.1:5001/api/delete_news/${newsId}`, { is_deleted: true }, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             showMessage('success', 'News deleted successfully!');
@@ -122,7 +122,7 @@ const News = () => {
     const handleActivateNews = async (newsId) => {
         try {
             const token = localStorage.getItem('token');
-            await axios.patch(`/api/activate_news/${newsId}`, { is_deleted: false }, {
+            await axios.patch(`http://127.0.0.1:5001/api/activate_news/${newsId}`, { is_deleted: false }, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             showMessage('success', 'News activated successfully!');
@@ -155,7 +155,7 @@ const News = () => {
             formData.append('expirationDate', editedNews.expiration_date);
             formData.append('target_cohorts', editedNews.target_cohorts);
             const token = localStorage.getItem('token');
-            await axios.patch(`/api/update_news/${newsId}`, formData, {
+            await axios.patch(`http://127.0.0.1:5001/api/update_news/${newsId}`, formData, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             showMessage('success', 'News updated successfully');
@@ -170,7 +170,7 @@ const News = () => {
     // function to handle a document during the editing
     const handleDeleteDocument = async (docId) => {
         const token = localStorage.getItem('token');
-        const response = await axios.patch(`/api/delete_doc/${docId}`,{}, {
+        const response = await axios.patch(`http://127.0.0.1:5001/api/delete_doc/${docId}`,{}, {
             headers: { Authorization: `Bearer ${token}` }
         });
         if (response.data.success){
@@ -194,7 +194,7 @@ const News = () => {
             }
             const token = localStorage.getItem('token');
             
-            const response = await axios.post(`/api/upload_docs/${newsId}`, formData, {
+            const response = await axios.post(`http://127.0.0.1:5001/api/upload_docs/${newsId}`, formData, {
                 headers: { Authorization: `Bearer ${token}` }
             });
     
@@ -274,7 +274,7 @@ const News = () => {
                 <ul className="list-unstyled">
                     {cell.getValue().filter(docId => docId !== null && docId !== undefined).map(docId => (
                     <li key={docId}>
-                        <a href={`http://127.0.0.1:5000/api/download/${docId}`} className="btn btn-link">
+                        <a href={`http://127.0.0.1:5001/api/download/${docId}`} className="btn btn-link">
                         <AttachmentIcon /> Download Document
                         </a>
                     </li>
@@ -718,7 +718,7 @@ const News = () => {
                                                                                 .filter(docId => docId !== null && docId !== undefined)  // Filtro per rimuovere null o undefined
                                                                                 .map(docId => (
                                                                                     <li key={docId}>
-                                                                                        <a href={`http://127.0.0.1:5000/api/download/${docId}`} className="btn btn-link">
+                                                                                        <a href={`http://127.0.0.1:5001/api/download/${docId}`} className="btn btn-link">
                                                                                             <AttachmentIcon />
                                                                                             Download Document
                                                                                         </a>
@@ -773,7 +773,7 @@ const News = () => {
                                                                             .filter(docId => docId !== null && docId !== undefined)  // filter to remove undefined or null ids
                                                                             .map(docId => (
                                                                                 <li key={docId}>
-                                                                                    <a href={`http://127.0.0.1:5000/api/download/${docId}`} className="btn btn-link">
+                                                                                    <a href={`http://127.0.0.1:5001/api/download/${docId}`} className="btn btn-link">
                                                                                         <AttachmentIcon />
                                                                                         Download Document
                                                                                     </a>

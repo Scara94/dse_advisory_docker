@@ -59,7 +59,7 @@ const TeacherThesis = () => {
         try{
             const token = localStorage.getItem('token');
             const teacher = auth.username;
-            const response = await axios.post('/api/fetch_pending_thesis', { teacher }, {
+            const response = await axios.post('http://127.0.0.1:5001/api/fetch_pending_thesis', { teacher }, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                     'Content-Type': 'application/json'
@@ -79,7 +79,7 @@ const TeacherThesis = () => {
         try{
             const token = localStorage.getItem('token');
             const teacher = auth.username
-            const response = await axios.post('/api/fetch_teacher_thesis_proposal', {teacher}, {
+            const response = await axios.post('http://127.0.0.1:5001/api/fetch_teacher_thesis_proposal', {teacher}, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                     'Content-Type': 'application/json'
@@ -99,7 +99,7 @@ const TeacherThesis = () => {
         try{
             const token = localStorage.getItem('token');
             const teacher = auth.username;
-            const response = await axios.get(`/api/fetch_teacher_activated_thesis/${teacher}`, {
+            const response = await axios.get(`http://127.0.0.1:5001/api/fetch_teacher_activated_thesis/${teacher}`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 }
@@ -125,7 +125,7 @@ const TeacherThesis = () => {
 
         try{
             const token = localStorage.getItem('token');
-            const response = await axios.post('/api/add_teacher_proposal', formData,{
+            const response = await axios.post('http://127.0.0.1:5001/api/add_teacher_proposal', formData,{
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -147,7 +147,7 @@ const TeacherThesis = () => {
     const handleAccept = async (thesisId) => {
         try{
             const token = localStorage.getItem('token');
-            const response = await axios.patch(`/api/accept_thesis/${thesisId}`, {}, {
+            const response = await axios.patch(`http://127.0.0.1:5001/api/accept_thesis/${thesisId}`, {}, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -167,7 +167,7 @@ const TeacherThesis = () => {
     const handleDecline = async (thesisId) => {
         try{
             const token = localStorage.getItem('token');
-            const response = await axios.patch(`/api/decline_thesis/${thesisId}`,{}, {
+            const response = await axios.patch(`http://127.0.0.1:5001/api/decline_thesis/${thesisId}`,{}, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -204,7 +204,7 @@ const TeacherThesis = () => {
             formData.append('expiration', editedThesisProposal.expiration);
             formData.append('duration', editedThesisProposal.duration);
             const token = localStorage.getItem('token');
-            const response = await axios.patch(`/api/update_thesis_proposal/${proposalID}`, formData,{
+            const response = await axios.patch(`http://127.0.0.1:5001/api/update_thesis_proposal/${proposalID}`, formData,{
                 headers: { Authorization: `Bearer ${token}` }
             });
             if (response.data.success){
@@ -223,7 +223,7 @@ const TeacherThesis = () => {
     const handleDeleteThesisProposal = async (thesisProposalID) => {
         try{
             const token = localStorage.getItem('token');
-            await axios.patch(`/api/delete_thesis_proposal/${thesisProposalID}`, { is_deleted: true }, {
+            await axios.patch(`http://127.0.0.1:5001/api/delete_thesis_proposal/${thesisProposalID}`, { is_deleted: true }, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             showMessage('success', 'Proposal deleted successfully!');
@@ -518,7 +518,7 @@ const TeacherThesis = () => {
                                                                                 <Grid2 container spacing={2}>
                                                                                     {/* Colonna sinistra: informazioni sul file */}
                                                                                     <Grid2 item xs={6}>
-                                                                                        <a href={`http://127.0.0.1:5000/api/download/${doc.id}`} className="btn btn-link">
+                                                                                        <a href={`http://127.0.0.1:5001/api/download/${doc.id}`} className="btn btn-link">
                                                                                             {doc.name || 'Unknown Document'}
                                                                                         </a>
                                                                                     </Grid2>

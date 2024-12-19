@@ -2,7 +2,7 @@ from flask import Blueprint, request, jsonify, session
 import psycopg2
 from config import Config
 import bcrypt
-from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity
+from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity, verify_jwt_in_request
 
 local_auth = Blueprint('local_auth', __name__)
 
@@ -41,9 +41,12 @@ def login():
                 'firstname': user[2],
                 'lastname': user[3]
             }
-            access_token = create_access_token(identity=user_data)
+            access_token = create_access_token(identity=user_data['username'])
             print(access_token)
             print(user_data)
+            session['user_type'] = user_data['user_type']
+            session['firstname'] = user_data['firstname']
+            session['lastname'] = user_data['lastname']
             return jsonify({"message": "Login successful", "user": user_data, "access_token": access_token}), 200
         else:
             return jsonify({'message': 'Invalid credentials'}), 401
@@ -51,18 +54,47 @@ def login():
 @local_auth.route('/check_session', methods=['GET'])
 @jwt_required()
 def check_session():
-
+    import app
+    """
     #o si usano le session
-    #user = session.get('user')
+        #user = session.get('user')
 
-    #o i jwt
-    user = get_jwt_identity()
+        #o i jwt
+        #verify_jwt_in_request()
+        user = get_jwt_identity()
 
-    if user:
-        return jsonify(user), 200
-    else:
-        return jsonify({'message': 'No active session'}), 401
+        if user:
+            print(f"Response JSON: {request.get_json()}")
+            return jsonify(user), 200
+        else:
+            print(f"Response JSON: {request.get_json()}")
+            return jsonify({'message': 'No active session'}), 401
+    """
+    try:
+        # Verifica che il JWT sia presente e valido
+        #verify_jwt_in_request()  # Questo verifica la validità del token nella richiesta
+        
+        # Ottieni l'identità dell'utente (dal JWT)
+        current_user = get_jwt_identity()
+
+        if current_user:
+            """
+            user_type = request.args.get('userType')  # Recupera 'userType' dalla query string
+            firstname = request.args.get('firstname')  # Recupera 'firstname'
+            lastname = request.args.get('lastname')  # Recupera 'lastname'
+            """
+            user_type = session.get('user_type')
+            firstname = session.get('firstname')
+            lastname = session.get('lastname')
+            
+            print("Dati ricevuti dal frontend:", user_type, firstname, lastname, current_user)
+            return jsonify({"username": current_user, "user_type": user_type, "firstname": firstname, "lastname": lastname}), 200
+    except Exception as e:
+        # Gestisci eventuali errori, come JWT mancante o non valido
+        print(str(e))
+        return jsonify({"msg": "Token is invalid or missing", "error": str(e)}), 401
     
+
 @local_auth.route('/logout', methods=['GET'])
 def logout():
     session.pop('user', None)

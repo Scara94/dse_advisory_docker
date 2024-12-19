@@ -17,10 +17,11 @@ import logging
 
 sess = Session()
 app = Flask(__name__)
-CORS(app, origins="http://localhost:3000", supports_credentials=True, expose_headers="Authorization")
+CORS(app, allow_headers=["Content-Type", "Authorization"], methods=['GET', 'POST', 'ORIGINS', 'FETCH', 'PATCH'])
+#CORS(app, resources={r"/api/*": {"origins": "http://172.19.0.1"}})
 app.config.from_object(Config)
-#app.config['JWT_SECRET_KEY'] = Config.JWT_SECRET_KEY
-app.config['JWT_ACCESS_TOKEN_EXPIRES'] = timedelta(days=1)  # Short expiration for the access token
+app.config['JWT_SECRET_KEY'] = Config.JWT_SECRET_KEY
+app.config['JWT_ACCESS_TOKEN_EXPIRES'] = timedelta(days=1)
 app.config['UPLOAD_FOLDER'] = login_credentials.upload_folder
 app.config['MAX_CONTENT_LENGTH'] = login_credentials.max_content_length
 
@@ -41,3 +42,4 @@ app.register_blueprint(student_thesis, url_prefix='/api')
 if __name__ == '__main__':
     logging.basicConfig(level=logging.DEBUG)
     app.run(host='0.0.0.0', port=5001, debug=True)
+    #app.run(debug=True)

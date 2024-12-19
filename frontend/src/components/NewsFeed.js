@@ -16,7 +16,7 @@ const NewsFeed  = () =>{
         const username = auth.username;
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.post("/api/get_news", {username}, {
+            const response = await axios.post("http://127.0.0.1:5001/api/get_news", {username}, {
                 headers: { Authorization: `Bearer ${token}`},
             });
             const sortedNews = response.data.news_list.sort((a,b) => new Date(b.publication_date) - new Date(a.publication_date));

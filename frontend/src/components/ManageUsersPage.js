@@ -26,7 +26,7 @@ const ManageUsersPage = () => {
     const fetchUsers = async () => {
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.get('/api/fetchUsers', {
+            const response = await axios.get('http://127.0.0.1:5001/api/fetchUsers', {
                 headers: { Authorization: `Bearer ${token}`}
             });
             setUsers(response.data.users);
@@ -61,7 +61,7 @@ const ManageUsersPage = () => {
         e.preventDefault();
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.post('/api/add_user', { username, userType }, {
+            const response = await axios.post('http://127.0.0.1:5001/api/add_user', { username, userType }, {
                 headers: { Authorization: `Bearer ${token}`}
             });
             //console.log(response)
@@ -87,7 +87,7 @@ const ManageUsersPage = () => {
     const handleToggleActivation = async (username, currentStatus, userType) => {
         try{
             const token = localStorage.getItem('token');
-            const response = await axios.post('/api/toggle_activation', { username, isActive: !currentStatus, userType }, {
+            const response = await axios.post('http://127.0.0.1:5001/api/toggle_activation', { username, isActive: !currentStatus, userType }, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             if (response.data.success) {
@@ -109,7 +109,7 @@ const ManageUsersPage = () => {
             formData.append('userType', userType);
             formData.append('file', file);
             const token = localStorage.getItem('token');
-            const response = await axios.post('/api/add_multiple_users', formData, {
+            const response = await axios.post('http://127.0.0.1:5001/api/add_multiple_users', formData, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             if (response.data.success){

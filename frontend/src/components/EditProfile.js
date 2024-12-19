@@ -39,7 +39,7 @@ const EditProfile = () => {
         } else {
             try{
                 const token = localStorage.getItem('token');
-                const response = await axios.post('/api/update_password', {
+                const response = await axios.post('http://127.0.0.1:5001/api/update_password', {
                     username: auth.username,
                     newPassword: newPassword,
                     userType: auth.userType

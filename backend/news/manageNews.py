@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify, session
-from flask_jwt_extended import jwt_required
+from flask_jwt_extended import jwt_required, JWTManager
 import psycopg2
 from config import Config
 import filesManager.fileManager as fm
@@ -99,8 +99,12 @@ def get_news():
             for row in news
         ]
         #print(news_list['document_ids'])
+        response = jsonify({"success": True, "news_list": news_list})
+        print("Response JSON:", response.get_json())  
         return jsonify({"success": True, "news_list": news_list}), 200
     except Exception as e:
+        #error_response = jsonify({"error": str(e)})
+        print("Response error JSON:", str(e)) 
         return jsonify({"error": str(e)}), 500
     finally:
         cur.close()

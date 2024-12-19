@@ -24,6 +24,7 @@ const LoginPage = () => {
             navigate('/welcome/' + credentials.username);
         } catch(error){
             showMessage('error', "Invalid credentials");
+            //showMessage('error', error);
         }
     };
 

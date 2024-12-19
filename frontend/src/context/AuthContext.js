@@ -11,16 +11,20 @@ export const AuthProvider = ({ children }) => {
         if (token){
             const checkSession = async () => {
                 try {
-                    const response = await axios.get('/api/check_session', { 
+                    const response = await axios.get('http://127.0.0.1:5001/api/check_session', {
                         headers: { Authorization: `Bearer ${token}` }
-                     });
+                    });
                     if (response.data.username) {
+
                         setAuth({ 
                             isAuthenticated: true, 
-                            userType: response.data.user_type, 
+                            //userType: response.data.user_type, 
+                            userType: localStorage.getItem('userType'),
                             username: response.data.username, 
-                            firstname: response.data.firstname, 
-                            lastname: response.data.lastname,
+                            //firstname: response.data.firstname, 
+                            firstname: localStorage.getItem('firstname'),
+                            //lastname: response.data.lastname,
+                            lastname: localStorage.getItem('lastname')
                         });
                     }
                 } catch (error){
@@ -40,12 +44,15 @@ export const AuthProvider = ({ children }) => {
             firstname: userData.firstname, 
             lastname: userData.lastname
         });
+        localStorage.setItem('userType', userData.user_type);
+        localStorage.setItem('firstname', userData.firstname);
+        localStorage.setItem('lastname', userData.lastname);
     }
 
     // local login
     const login = async (credentials) => {
         try{
-            const response = await axios.post('/api/login', credentials, { withCredentials: true });
+            const response = await axios.post('http://127.0.0.1:5001/api/login', credentials/*, { withCredentials: true }*/);
             const userData = response.data.user;
             updateAuthState(userData);
             localStorage.setItem('token', response.data.access_token);
@@ -58,7 +65,7 @@ export const AuthProvider = ({ children }) => {
 
     const loginCas = async (username) => {
         try{
-            const response = await axios.get(`/api/cas_login_confirmation?username=${username}`/*, username, { withCredentials: true }*/);
+            const response = await axios.get(`http://127.0.0.1:5001/api/cas_login_confirmation?username=${username}`/*, username, { withCredentials: true }*/);
             const userData = response.data.user;
             updateAuthState(userData);
             localStorage.setItem('token', response.data.access_token);

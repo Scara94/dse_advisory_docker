@@ -31,7 +31,7 @@ const HomePage = () => {
 
     const handleCasLoginRedirect = async () => {
        try{
-        const response = await axios.get('api/cas_login');
+        const response = await axios.get('http://127.0.0.1:5001/api/cas_login');
         window.location.href = response.data.cas_url;
        } catch(error){
         console.error("Error to redirect to CAS server", error)
