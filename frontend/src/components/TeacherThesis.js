@@ -138,6 +138,7 @@ const TeacherThesis = () => {
                 setKeys('');
                 setDuration('');
                 setExpiration('');
+                fetchThesisProposal();
             }
         } catch (error){
             showMessage('error', 'Error during add a thesis proposal');

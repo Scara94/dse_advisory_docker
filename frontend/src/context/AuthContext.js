@@ -79,6 +79,9 @@ export const AuthProvider = ({ children }) => {
 
     const logout = async () => {
         localStorage.removeItem('token');
+        localStorage.removeItem('userType');
+        localStorage.removeItem('firstname');
+        localStorage.removeItem('lastname');
         setAuth({ isAuthenticated: false, userType: '', username: '', firstname: '', lastname: '' });
         sessionStorage.clear();
         window.location.href = '/';
