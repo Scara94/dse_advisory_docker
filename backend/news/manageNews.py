@@ -1,11 +1,9 @@
 from flask import Blueprint, request, jsonify, session
-from flask_jwt_extended import jwt_required, JWTManager
+from flask_jwt_extended import jwt_required
 import psycopg2
 from config import Config
 import filesManager.fileManager as fm
 from datetime import datetime
-import login_credentials
-import os 
 
 manage_news = Blueprint('manage_news', __name__)
 

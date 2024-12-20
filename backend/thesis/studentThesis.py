@@ -12,7 +12,7 @@ def get_db_connection():
     return conn
 
 @student_thesis.route('/fetch_all_thesis_proposal', methods=['GET'])
-#@jwt_required()
+@jwt_required()
 def fetch_all_thesis_proposal():
     try:
         conn = get_db_connection()
@@ -63,7 +63,7 @@ def fetch_all_thesis_proposal():
         conn.close()
 
 @student_thesis.route('/fetch_all_teachers', methods=['GET'])
-#@jwt_required()
+@jwt_required()
 def fetch_all_teachers():
     try:
         conn = get_db_connection()
@@ -125,7 +125,7 @@ def make_student_thesis_proposal():
         return jsonify({'error': str(e)})
 
 @student_thesis.route('/fetch_student_thesis/<string:student_username>', methods=['GET'])
-#@jwt_required()
+@jwt_required()
 def fetch_student_thesis(student_username):
     try:
         conn = get_db_connection()

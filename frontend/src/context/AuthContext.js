@@ -1,5 +1,6 @@
 import React, { createContext, useEffect, useState } from "react";
 import axios from "axios";
+import API_BASE_URL from "../config";
 
 export const AuthContext = createContext();
 
@@ -11,7 +12,7 @@ export const AuthProvider = ({ children }) => {
         if (token){
             const checkSession = async () => {
                 try {
-                    const response = await axios.get('http://127.0.0.1:5001/api/check_session', {
+                    const response = await axios.get(`${API_BASE_URL}/api/check_session`, {
                         headers: { Authorization: `Bearer ${token}` }
                     });
                     if (response.data.username) {
@@ -52,7 +53,7 @@ export const AuthProvider = ({ children }) => {
     // local login
     const login = async (credentials) => {
         try{
-            const response = await axios.post('http://127.0.0.1:5001/api/login', credentials/*, { withCredentials: true }*/);
+            const response = await axios.post(`${API_BASE_URL}/api/login`, credentials/*, { withCredentials: true }*/);
             const userData = response.data.user;
             updateAuthState(userData);
             localStorage.setItem('token', response.data.access_token);
@@ -65,7 +66,7 @@ export const AuthProvider = ({ children }) => {
 
     const loginCas = async (username) => {
         try{
-            const response = await axios.get(`http://127.0.0.1:5001/api/cas_login_confirmation?username=${username}`/*, username, { withCredentials: true }*/);
+            const response = await axios.get(`${API_BASE_URL}/api/cas_login_confirmation?username=${username}`/*, username, { withCredentials: true }*/);
             const userData = response.data.user;
             updateAuthState(userData);
             localStorage.setItem('token', response.data.access_token);

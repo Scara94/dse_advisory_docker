@@ -1,14 +1,13 @@
 import React, { useState, useContext, useEffect, useMemo } from 'react';
 import axios from 'axios';
-//import { AuthContext } from '../context/AuthContext';
 import Navbar from './Navbar';
 import 'bootstrap/js/dist/tab';
 import { MaterialReactTable } from 'material-react-table';
 import { Button } from "@mui/material";
+import API_BASE_URL from '../config';
 
 
 const ManageUsersPage = () => {
-    //const { auth } = useContext(AuthContext);
     const [username, setUsername] = useState('');
     const [userType, setUserType] = useState('student');
     const [message, setMessage] = useState('');
@@ -26,7 +25,7 @@ const ManageUsersPage = () => {
     const fetchUsers = async () => {
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.get('http://127.0.0.1:5001/api/fetchUsers', {
+            const response = await axios.get(`${API_BASE_URL}/api/fetchUsers`, {
                 headers: { Authorization: `Bearer ${token}`}
             });
             setUsers(response.data.users);
@@ -61,7 +60,7 @@ const ManageUsersPage = () => {
         e.preventDefault();
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.post('http://127.0.0.1:5001/api/add_user', { username, userType }, {
+            const response = await axios.post(`${API_BASE_URL}/api/add_user`, { username, userType }, {
                 headers: { Authorization: `Bearer ${token}`}
             });
             //console.log(response)
@@ -87,7 +86,7 @@ const ManageUsersPage = () => {
     const handleToggleActivation = async (username, currentStatus, userType) => {
         try{
             const token = localStorage.getItem('token');
-            const response = await axios.post('http://127.0.0.1:5001/api/toggle_activation', { username, isActive: !currentStatus, userType }, {
+            const response = await axios.post(`${API_BASE_URL}/api/toggle_activation`, { username, isActive: !currentStatus, userType }, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             if (response.data.success) {
@@ -109,7 +108,7 @@ const ManageUsersPage = () => {
             formData.append('userType', userType);
             formData.append('file', file);
             const token = localStorage.getItem('token');
-            const response = await axios.post('http://127.0.0.1:5001/api/add_multiple_users', formData, {
+            const response = await axios.post(`${API_BASE_URL}/api/add_multiple_users`, formData, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             if (response.data.success){
@@ -290,7 +289,7 @@ const ManageUsersPage = () => {
                                                         id="fileUpload"
                                                         accept=".csv"
                                                         required
-                                                        onChange={(e) => setFile(e.target.files[0])}  // Gestione del file caricato
+                                                        onChange={(e) => setFile(e.target.files[0])}
                                                     />
                                             </div>
                                             

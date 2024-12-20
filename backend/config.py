@@ -14,7 +14,7 @@ class Config:
 
     # Configurazioni email
     MAIL_SERVER = login_credentials.mail_server
-    #MAIL_PORT = login_credentials.mail_port
+    MAIL_PORT = login_credentials.mail_port
     MAIL_USERNAME = login_credentials.mail
     MAIL_PASSWORD = login_credentials.password
     MAIL_DEFAULT_SENDER = login_credentials.mail_default_sender_2

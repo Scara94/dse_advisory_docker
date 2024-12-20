@@ -4,6 +4,7 @@ import { AuthContext } from "../context/AuthContext";
 import axios from "axios";
 import PasswordStrengthBar from 'react-password-strength-bar';
 import zxcvbn from 'zxcvbn';
+import API_BASE_URL from "../config";
 
 
 const EditProfile = () => {
@@ -39,7 +40,7 @@ const EditProfile = () => {
         } else {
             try{
                 const token = localStorage.getItem('token');
-                const response = await axios.post('http://127.0.0.1:5001/api/update_password', {
+                const response = await axios.post(`${API_BASE_URL}/api/update_password`, {
                     username: auth.username,
                     newPassword: newPassword,
                     userType: auth.userType

@@ -10,6 +10,7 @@ import  DeleteOutlineOutlinedIcon  from '@mui/icons-material/DeleteOutlineOutlin
 import { DatePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { it } from "date-fns/locale";
+import API_BASE_URL from "../config";
 
 const StudentThesis = () => {
     const { auth } = useContext(AuthContext);
@@ -64,7 +65,7 @@ const StudentThesis = () => {
     const fetch_all_teachers = async () => {
         try{
             const token = localStorage.getItem('token');
-            const response = await axios.get("http://127.0.0.1:5001/api/fetch_all_teachers", {
+            const response = await axios.get(`${API_BASE_URL}/api/fetch_all_teachers`, {
                 headers: { Authorization: `Bearer ${token}` },
             })
             if (response.data.success){
@@ -78,7 +79,7 @@ const StudentThesis = () => {
     const fetchStudentThesis = async () => {
         try{
             const token = localStorage.getItem('token');
-            const response = await axios.get(`http://127.0.0.1:5001/api/fetch_student_thesis/${auth.username}`, {
+            const response = await axios.get(`${API_BASE_URL}/api/fetch_student_thesis/${auth.username}`, {
                 headers: { Authorization: `Bearer ${token}` }
             })
             setThesis(response.data.student_thesis);
@@ -91,7 +92,7 @@ const StudentThesis = () => {
     const fetchAllThesisProposal = async () => {
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.get("http://127.0.0.1:5001/api/fetch_all_thesis_proposal", {
+            const response = await axios.get(`${API_BASE_URL}/api/fetch_all_thesis_proposal`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setThesisProposalList(response.data.thesis_proposal_list);
@@ -122,7 +123,7 @@ const StudentThesis = () => {
         formData.append("student_username", auth.username);
         try{
             const token = localStorage.getItem('token');
-            const response = await axios.post("http://127.0.0.1:5001/api/make_student_thesis_proposal", formData, {
+            const response = await axios.post(`${API_BASE_URL}/api/make_student_thesis_proposal`, formData, {
                 headers: { Authorization: `Bearer ${token}` },
             })
             if (response.data.success){
@@ -136,7 +137,7 @@ const StudentThesis = () => {
     // functions to handle the documents
     const handleDeleteDocument = async (docId) => {
         const token = localStorage.getItem('token');
-        const response = await axios.patch(`http://127.0.0.1:5001/api/delete_doc/${docId}`, {}, {
+        const response = await axios.patch(`${API_BASE_URL}/api/delete_doc/${docId}`, {}, {
             headers: { Authorization: `Bearer ${token}` }
         });
         if (response.data.success){
@@ -163,7 +164,7 @@ const StudentThesis = () => {
             formData.append('description', description);
             const token = localStorage.getItem('token');
 
-            const response = await axios.post(`http://127.0.0.1:5001/api/upload_thesis_docs/${thesisId}`, formData, {
+            const response = await axios.post(`${API_BASE_URL}/api/upload_thesis_docs/${thesisId}`, formData, {
                 headers: { Authorization: `Bearer ${token}`}
             });
             if (response.data.success){
@@ -202,7 +203,7 @@ const StudentThesis = () => {
             const formData = new FormData();
             formData.append('title', editedThesis.title);
             formData.append('discussiondate', editedThesis.discussiondate);
-            await axios.patch(`http://127.0.0.1:5001/api/update_thesis/${thesisId}`, formData, {
+            await axios.patch(`${API_BASE_URL}/api/update_thesis/${thesisId}`, formData, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             showMessage('success', 'Thesis updated successfully');
@@ -229,7 +230,7 @@ const StudentThesis = () => {
             const formData = new FormData()
             formData.append('newSupervisor', newSupervisor);
             formData.append('newCosupervisor', newCosupervisor);
-            await axios.patch(`http://127.0.0.1:5001/api/change_sup_cosup/${thesisId}`, formData, {
+            await axios.patch(`${API_BASE_URL}/api/change_sup_cosup/${thesisId}`, formData, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             showMessage('success', 'Supervisor/Co-supervisor changed correctly!')
@@ -680,7 +681,7 @@ const StudentThesis = () => {
                                                                         <Grid2 container spacing={2}>
                                                                             {/* Colonna sinistra: informazioni sul file */}
                                                                             <Grid2 item xs={6}>
-                                                                                <a href={`http://127.0.0.1:5001/api/download/${doc.id}`}>
+                                                                                <a href={`${API_BASE_URL}/api/download/${doc.id}`}>
                                                                                     {doc.name || 'Unknown Document'}
                                                                                 </a>
                                                                             </Grid2>

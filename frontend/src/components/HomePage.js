@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
+import API_BASE_URL from '../config';
 
 const HomePage = () => {
 
@@ -31,7 +32,7 @@ const HomePage = () => {
 
     const handleCasLoginRedirect = async () => {
        try{
-        const response = await axios.get('http://127.0.0.1:5001/api/cas_login');
+        const response = await axios.get(`${API_BASE_URL}/api/cas_login`);
         window.location.href = response.data.cas_url;
        } catch(error){
         console.error("Error to redirect to CAS server", error)

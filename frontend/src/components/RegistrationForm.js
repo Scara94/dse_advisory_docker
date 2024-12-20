@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 import PasswordStrengthBar from 'react-password-strength-bar';
 import zxcvbn from 'zxcvbn';
+import API_BASE_URL from "../config";
 
 const RegistrationForm = () =>{
     const [password, setPassword] = useState("");
@@ -36,7 +37,7 @@ const RegistrationForm = () =>{
             setUserType(urlParams.get('userType'));            
 
             try {
-                const response = await axios.get(`http://127.0.0.1:5001/api/validate_token?token=${token}`);
+                const response = await axios.get(`${API_BASE_URL}/api/validate_token?token=${token}`);
                 if (response.data.success){
                     setUsername(response.data.username);
                 } else {

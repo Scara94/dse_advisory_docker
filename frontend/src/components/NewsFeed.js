@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { AuthContext } from "../context/AuthContext";
 import AttachmentIcon from '@mui/icons-material/Attachment';
+import API_BASE_URL from "../config";
 
 const NewsFeed  = () =>{
     const { auth } = useContext(AuthContext);
@@ -16,7 +17,7 @@ const NewsFeed  = () =>{
         const username = auth.username;
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.post("http://127.0.0.1:5001/api/get_news", {username}, {
+            const response = await axios.post(`${API_BASE_URL}/api/get_news`, {username}, {
                 headers: { Authorization: `Bearer ${token}`},
             });
             const sortedNews = response.data.news_list.sort((a,b) => new Date(b.publication_date) - new Date(a.publication_date));
@@ -53,7 +54,7 @@ const NewsFeed  = () =>{
                                                             .filter(docId => docId !== null && docId !== undefined)
                                                             .map(docId => (
                                                                 <li key={docId}>
-                                                                    <a href={`http://127.0.0.1:5000/api/download/${docId}`} className="btn btn-link">
+                                                                    <a href={`${API_BASE_URL}/api/download/${docId}`} className="btn btn-link">
                                                                         <AttachmentIcon />
                                                                         Download Document
                                                                     </a>

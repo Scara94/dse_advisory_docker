@@ -7,6 +7,7 @@ import { Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField, L
 import { DatePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { it } from "date-fns/locale";
+import API_BASE_URL from "../config";
 
 
 const TeacherThesis = () => {
@@ -59,7 +60,7 @@ const TeacherThesis = () => {
         try{
             const token = localStorage.getItem('token');
             const teacher = auth.username;
-            const response = await axios.post('http://127.0.0.1:5001/api/fetch_pending_thesis', { teacher }, {
+            const response = await axios.post(`${API_BASE_URL}/api/fetch_pending_thesis`, { teacher }, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                     'Content-Type': 'application/json'
@@ -79,7 +80,7 @@ const TeacherThesis = () => {
         try{
             const token = localStorage.getItem('token');
             const teacher = auth.username
-            const response = await axios.post('http://127.0.0.1:5001/api/fetch_teacher_thesis_proposal', {teacher}, {
+            const response = await axios.post(`${API_BASE_URL}/api/fetch_teacher_thesis_proposal`, {teacher}, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                     'Content-Type': 'application/json'
@@ -99,7 +100,7 @@ const TeacherThesis = () => {
         try{
             const token = localStorage.getItem('token');
             const teacher = auth.username;
-            const response = await axios.get(`http://127.0.0.1:5001/api/fetch_teacher_activated_thesis/${teacher}`, {
+            const response = await axios.get(`${API_BASE_URL}/api/fetch_teacher_activated_thesis/${teacher}`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 }
@@ -125,7 +126,7 @@ const TeacherThesis = () => {
 
         try{
             const token = localStorage.getItem('token');
-            const response = await axios.post('http://127.0.0.1:5001/api/add_teacher_proposal', formData,{
+            const response = await axios.post(`${API_BASE_URL}/api/add_teacher_proposal`, formData,{
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -147,7 +148,7 @@ const TeacherThesis = () => {
     const handleAccept = async (thesisId) => {
         try{
             const token = localStorage.getItem('token');
-            const response = await axios.patch(`http://127.0.0.1:5001/api/accept_thesis/${thesisId}`, {}, {
+            const response = await axios.patch(`${API_BASE_URL}/api/accept_thesis/${thesisId}`, {}, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -167,7 +168,7 @@ const TeacherThesis = () => {
     const handleDecline = async (thesisId) => {
         try{
             const token = localStorage.getItem('token');
-            const response = await axios.patch(`http://127.0.0.1:5001/api/decline_thesis/${thesisId}`,{}, {
+            const response = await axios.patch(`${API_BASE_URL}/api/decline_thesis/${thesisId}`,{}, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -204,7 +205,7 @@ const TeacherThesis = () => {
             formData.append('expiration', editedThesisProposal.expiration);
             formData.append('duration', editedThesisProposal.duration);
             const token = localStorage.getItem('token');
-            const response = await axios.patch(`http://127.0.0.1:5001/api/update_thesis_proposal/${proposalID}`, formData,{
+            const response = await axios.patch(`${API_BASE_URL}/api/update_thesis_proposal/${proposalID}`, formData,{
                 headers: { Authorization: `Bearer ${token}` }
             });
             if (response.data.success){
@@ -223,7 +224,7 @@ const TeacherThesis = () => {
     const handleDeleteThesisProposal = async (thesisProposalID) => {
         try{
             const token = localStorage.getItem('token');
-            await axios.patch(`http://127.0.0.1:5001/api/delete_thesis_proposal/${thesisProposalID}`, { is_deleted: true }, {
+            await axios.patch(`${API_BASE_URL}/api/delete_thesis_proposal/${thesisProposalID}`, { is_deleted: true }, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             showMessage('success', 'Proposal deleted successfully!');
@@ -518,7 +519,7 @@ const TeacherThesis = () => {
                                                                                 <Grid2 container spacing={2}>
                                                                                     {/* Colonna sinistra: informazioni sul file */}
                                                                                     <Grid2 item xs={6}>
-                                                                                        <a href={`http://127.0.0.1:5001/api/download/${doc.id}`} className="btn btn-link">
+                                                                                        <a href={`${API_BASE_URL}/api/download/${doc.id}`} className="btn btn-link">
                                                                                             {doc.name || 'Unknown Document'}
                                                                                         </a>
                                                                                     </Grid2>
