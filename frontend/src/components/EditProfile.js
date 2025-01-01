@@ -85,10 +85,6 @@ const EditProfile = () => {
                                         <input type="text" className="form-control" id="userType" value={auth.userType} readOnly />
                                     </div>
                                     <div className="mb-3">
-                                        <label htmlFor="userType" className="form-label">Token JWT</label>
-                                        <input type="text" className="form-control" id="userType" value={localStorage.getItem('token')} readOnly />
-                                    </div>
-                                    <div className="mb-3">
                                         <label htmlFor="newPassword" className="form-label">New Password</label>
                                         <ul className="password-requirements">
                                             <li>At least 6 characters</li>
