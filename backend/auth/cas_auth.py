@@ -17,7 +17,7 @@ cas_auth = Blueprint('cas_auth', __name__)
 class SSLAdapter(HTTPAdapter):
     def init_poolmanager(self, *args, **kwargs):
         context = ssl.create_default_context()
-        context.set_ciphers('DEFAULT@SECLEVEL=1')  # Abbassa il livello di sicurezza per consentire chiavi DH più piccole
+        context.set_ciphers('DEFAULT@SECLEVEL=1')  # Lower the security level to allow smaller DH keys.
         kwargs['ssl_context'] = context
         return super(SSLAdapter, self).init_poolmanager(*args, **kwargs)
 
