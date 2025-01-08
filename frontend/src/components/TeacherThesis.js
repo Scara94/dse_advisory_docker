@@ -513,7 +513,6 @@ const TeacherThesis = () => {
                                                             const validDocuments = thesis.documents?.filter(doc => doc && doc.id !== null) || [];
                                                             return validDocuments.length > 0 ? (
                                                                 <>
-                                                                    <strong>Attached Documents</strong>
                                                                     <List>
                                                                         {validDocuments.map((doc) => (
                                                                             <ListItem key={doc.id}>
