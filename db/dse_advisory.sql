@@ -5,7 +5,7 @@
 -- Dumped from database version 16.6 (Postgres.app)
 -- Dumped by pg_dump version 17.0
 
--- Started on 2025-01-09 16:53:45 CET
+-- Started on 2025-01-09 16:56:32 CET
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -813,7 +813,7 @@ ALTER TABLE ONLY dse_advisory.thesis
     ADD CONSTRAINT thesis_supervisor_fkey FOREIGN KEY (supervisor) REFERENCES dse_advisory.teacher(username);
 
 
--- Completed on 2025-01-09 16:53:45 CET
+-- Completed on 2025-01-09 16:56:32 CET
 
 --
 -- PostgreSQL database dump complete
