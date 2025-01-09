@@ -18,7 +18,6 @@ import logging
 sess = Session()
 app = Flask(__name__)
 CORS(app, allow_headers=["Content-Type", "Authorization"], methods=['GET', 'POST', 'ORIGINS', 'FETCH', 'PATCH'])
-#CORS(app, resources={r"/api/*": {"origins": "http://172.19.0.1"}})
 app.config.from_object(Config)
 app.config['JWT_SECRET_KEY'] = Config.JWT_SECRET_KEY
 app.config['JWT_ACCESS_TOKEN_EXPIRES'] = timedelta(days=1)
