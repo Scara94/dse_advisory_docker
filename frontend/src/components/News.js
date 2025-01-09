@@ -6,10 +6,9 @@ import { AuthContext } from "../context/AuthContext";
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import AttachmentIcon from '@mui/icons-material/Attachment';
 import { MaterialReactTable } from 'material-react-table';
-import { Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField, List, ListItem, IconButton, Box, Checkbox, FormControlLabel, FormGroup } from "@mui/material";
+import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField, List, ListItem, IconButton, Box } from "@mui/material";
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-//import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import API_BASE_URL from "../config";
 
@@ -22,12 +21,13 @@ const News = () => {
     const [subject, setSubject] = useState('');
     const [content, setContent] = useState('');
     const [newsList, setNewsList] = useState([]);
-    const [editingNewsId, setEditingNewsId] = useState(null); // Per gestire l'id della news in modifica
-    const [editedNews, setEditedNews] = useState({ subject: '', content: '' }); // Per memorizzare le modifiche
+    const [editingNewsId, setEditingNewsId] = useState(null); // to handle the id of the edited document 
+    const [editedNews, setEditedNews] = useState({ subject: '', content: '' }); // to memorize the changes
     const [showCheckboxes, setShowCheckboxes] = useState(false);
     const [expirationDate, setExpirationDate] = useState(null);
     const [files, setFiles] = useState([]);
     const [openEditDialog, setOpenEditDialog] = useState(false);
+    const [ openConfirm, setOpenConfirm ] = useState(false);
 
     useEffect(() => {
         sessionStorage.setItem('lastPage', '/news');
@@ -180,6 +180,7 @@ const News = () => {
                 ...prevNews,
                 document_ids: prevNews.document_ids.filter(id => id !== docId)
               }));
+              setOpenConfirm(false);
             fetchAllNews();
         } else {
             showMessage('error', 'Error during delete the document!') 
@@ -223,6 +224,15 @@ const News = () => {
         }
     };
     
+    //functions to handle the confirmation of document deletion
+    const handleOpenConfirmDeleteDocumentDialog = () => {
+        setOpenConfirm(true);
+    }
+
+    const handleCloseConfirmDeleteDocumentDialog = () => {
+        setOpenConfirm(false);
+    }
+
 
     const columns = useMemo(() => [
         {
@@ -543,9 +553,27 @@ const News = () => {
                                                                                 <ListItem key={docId}>
                                                                                     {/* Display the document name above the link */}
                                                                                     <span>{document ? document.name : 'Unknown Document'}</span>       
-                                                                                    <IconButton edge="end" onClick={() => handleDeleteDocument(docId)}>
+                                                                                    <IconButton edge="end" /*onClick={() => handleDeleteDocument(docId)}*/ onClick={() => handleOpenConfirmDeleteDocumentDialog()}>
                                                                                         <DeleteOutlineOutlinedIcon />
                                                                                     </IconButton>
+                                                                                    <Dialog open={openConfirm} onClose={handleCloseConfirmDeleteDocumentDialog}>
+                                                                                        <DialogTitle id="alert-dialog-title">
+                                                                                                Confirm deletion
+                                                                                            </DialogTitle>
+                                                                                            <DialogContent>
+                                                                                                <DialogContentText id="alert-dialog-description">
+                                                                                                    Are you sure to delete this document? This action cannot be undone.
+                                                                                                </DialogContentText>
+                                                                                            </DialogContent>
+                                                                                            <DialogActions>
+                                                                                                <Button onClick={handleCloseConfirmDeleteDocumentDialog} color="primary">
+                                                                                                    Esc
+                                                                                                </Button>
+                                                                                                <Button onClick={() => handleDeleteDocument(docId)} color="secondary" autoFocus>
+                                                                                                    Delete
+                                                                                                </Button>
+                                                                                            </DialogActions>
+                                                                                        </Dialog>
                                                                                 </ListItem>
                                                                             );
                                                                         })

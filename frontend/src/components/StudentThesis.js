@@ -4,7 +4,7 @@ import Navbar from "./Navbar";
 import 'bootstrap/js/dist/tab';
 import { AuthContext } from "../context/AuthContext";
 import { MaterialReactTable } from "material-react-table";
-import { Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField, Box, List, ListItem, IconButton, Typography, Grid2 } from "@mui/material";
+import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField, Box, List, ListItem, IconButton, Typography, Grid2 } from "@mui/material";
 import { Autocomplete } from "@mui/material";
 import  DeleteOutlineOutlinedIcon  from '@mui/icons-material/DeleteOutlineOutlined';
 import { DatePicker, LocalizationProvider } from "@mui/x-date-pickers";
@@ -40,6 +40,7 @@ const StudentThesis = () => {
     const [ inputValue4, setInputValue4 ] = useState('');
     const [ selectedFile, setSelectedFile ] = useState(null);
     const [ description, setDescription ] = useState('');
+    const [ openConfirm, setOpenConfirm ] = useState(false);
 
     useEffect(() => {
         sessionStorage.setItem('lastPage', '/studentThesis');
@@ -142,6 +143,7 @@ const StudentThesis = () => {
         });
         if (response.data.success){
             showMessage("success", "Document deleted correctly");
+            setOpenConfirm(false);
             fetchStudentThesis();
         } else {
             showMessage('error', 'Error during delete the document');
@@ -241,6 +243,15 @@ const StudentThesis = () => {
             setNewSelectedSupervisor(null);
             setNewSelectedCosupervisor(null);
         }
+    }
+
+    //functions to handle the confirmation of document deletion
+    const handleOpenConfirmDeleteDocumentDialog = () => {
+        setOpenConfirm(true);
+    }
+
+    const handleCloseConfirmDeleteDocumentDialog = () => {
+        setOpenConfirm(false);
     }
 
     const columns = useMemo(() => [
@@ -695,10 +706,28 @@ const StudentThesis = () => {
 
                                                                             {/* Colonna con l'icona per cancellare */}
                                                                             <Grid2 item>
-                                                                                <IconButton edge="end" onClick={() => handleDeleteDocument(doc.id)}>
+                                                                                <IconButton edge="end" onClick={() => handleOpenConfirmDeleteDocumentDialog()}>
                                                                                     <DeleteOutlineOutlinedIcon />
                                                                                 </IconButton>
                                                                             </Grid2>
+                                                                            <Dialog open={openConfirm} onClose={handleCloseConfirmDeleteDocumentDialog}>
+                                                                            <DialogTitle id="alert-dialog-title">
+                                                                                    Confirm deletion
+                                                                                </DialogTitle>
+                                                                                <DialogContent>
+                                                                                    <DialogContentText id="alert-dialog-description">
+                                                                                        Are you sure to delete this document? This action cannot be undone.
+                                                                                    </DialogContentText>
+                                                                                </DialogContent>
+                                                                                <DialogActions>
+                                                                                    <Button onClick={handleCloseConfirmDeleteDocumentDialog} color="primary">
+                                                                                        Esc
+                                                                                    </Button>
+                                                                                    <Button onClick={() => handleDeleteDocument(doc.id)} color="secondary" autoFocus>
+                                                                                        Delete
+                                                                                    </Button>
+                                                                                </DialogActions>
+                                                                            </Dialog>
                                                                         </Grid2>
                                                                     </ListItem>
                                                                 ))}
