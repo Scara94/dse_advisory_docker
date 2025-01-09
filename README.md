@@ -16,4 +16,7 @@ Inoltre è importante, una volta scaricato il repository, creare una cartella `u
 ## Frontend
 Il frontend ha un solo file di configurazione, all'interno della directory `/src`:
 - `config.js`, che contiene il base URL per tutte le richieste al backend, da modificare in fase di deploy con l'URL del server del backend.
+
+## Database
+Nella cartella `db` c'è un dump del database in cui sono presenti solo gli schemi, senza i record.
  
