@@ -5,7 +5,7 @@
 -- Dumped from database version 16.6 (Postgres.app)
 -- Dumped by pg_dump version 17.0
 
--- Started on 2024-12-02 19:55:54 CET
+-- Started on 2025-01-09 16:53:45 CET
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -63,7 +63,7 @@ CREATE SEQUENCE dse_advisory.cohort_id_seq
 ALTER SEQUENCE dse_advisory.cohort_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3745 (class 0 OID 0)
+-- TOC entry 3723 (class 0 OID 0)
 -- Dependencies: 215
 -- Name: cohort_id_seq; Type: SEQUENCE OWNED BY; Schema: dse_advisory; Owner: postgres
 --
@@ -121,7 +121,7 @@ CREATE SEQUENCE dse_advisory.document_id_seq
 ALTER SEQUENCE dse_advisory.document_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3746 (class 0 OID 0)
+-- TOC entry 3724 (class 0 OID 0)
 -- Dependencies: 225
 -- Name: document_id_seq; Type: SEQUENCE OWNED BY; Schema: dse_advisory; Owner: postgres
 --
@@ -176,7 +176,7 @@ CREATE SEQUENCE dse_advisory.news_id_seq
 ALTER SEQUENCE dse_advisory.news_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3747 (class 0 OID 0)
+-- TOC entry 3725 (class 0 OID 0)
 -- Dependencies: 220
 -- Name: news_id_seq; Type: SEQUENCE OWNED BY; Schema: dse_advisory; Owner: postgres
 --
@@ -214,7 +214,7 @@ CREATE SEQUENCE dse_advisory.news_target_cohort_id_seq
 ALTER SEQUENCE dse_advisory.news_target_cohort_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3748 (class 0 OID 0)
+-- TOC entry 3726 (class 0 OID 0)
 -- Dependencies: 222
 -- Name: news_target_cohort_id_seq; Type: SEQUENCE OWNED BY; Schema: dse_advisory; Owner: postgres
 --
@@ -239,7 +239,7 @@ CREATE SEQUENCE dse_advisory.news_target_news_id_seq
 ALTER SEQUENCE dse_advisory.news_target_news_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3749 (class 0 OID 0)
+-- TOC entry 3727 (class 0 OID 0)
 -- Dependencies: 223
 -- Name: news_target_news_id_seq; Type: SEQUENCE OWNED BY; Schema: dse_advisory; Owner: postgres
 --
@@ -347,7 +347,7 @@ CREATE SEQUENCE dse_advisory.thesis_doc_document_id_seq
 ALTER SEQUENCE dse_advisory.thesis_doc_document_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3750 (class 0 OID 0)
+-- TOC entry 3728 (class 0 OID 0)
 -- Dependencies: 229
 -- Name: thesis_doc_document_id_seq; Type: SEQUENCE OWNED BY; Schema: dse_advisory; Owner: postgres
 --
@@ -372,7 +372,7 @@ CREATE SEQUENCE dse_advisory.thesis_doc_thesis_id_seq
 ALTER SEQUENCE dse_advisory.thesis_doc_thesis_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3751 (class 0 OID 0)
+-- TOC entry 3729 (class 0 OID 0)
 -- Dependencies: 230
 -- Name: thesis_doc_thesis_id_seq; Type: SEQUENCE OWNED BY; Schema: dse_advisory; Owner: postgres
 --
@@ -397,7 +397,7 @@ CREATE SEQUENCE dse_advisory.thesis_id_seq
 ALTER SEQUENCE dse_advisory.thesis_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3752 (class 0 OID 0)
+-- TOC entry 3730 (class 0 OID 0)
 -- Dependencies: 227
 -- Name: thesis_id_seq; Type: SEQUENCE OWNED BY; Schema: dse_advisory; Owner: postgres
 --
@@ -442,7 +442,7 @@ CREATE SEQUENCE dse_advisory.thesis_proposal_id_seq
 ALTER SEQUENCE dse_advisory.thesis_proposal_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3753 (class 0 OID 0)
+-- TOC entry 3731 (class 0 OID 0)
 -- Dependencies: 232
 -- Name: thesis_proposal_id_seq; Type: SEQUENCE OWNED BY; Schema: dse_advisory; Owner: postgres
 --
@@ -467,7 +467,7 @@ CREATE SEQUENCE dse_advisory.thesis_proposal_thesis_id_seq
 ALTER SEQUENCE dse_advisory.thesis_proposal_thesis_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3754 (class 0 OID 0)
+-- TOC entry 3732 (class 0 OID 0)
 -- Dependencies: 233
 -- Name: thesis_proposal_thesis_id_seq; Type: SEQUENCE OWNED BY; Schema: dse_advisory; Owner: postgres
 --
@@ -604,300 +604,6 @@ ALTER TABLE ONLY dse_advisory.thesis_doc ALTER COLUMN thesis_id SET DEFAULT next
 --
 
 ALTER TABLE ONLY dse_advisory.thesis_proposal ALTER COLUMN id SET DEFAULT nextval('dse_advisory.thesis_proposal_id_seq'::regclass);
-
-
---
--- TOC entry 3719 (class 0 OID 16402)
--- Dependencies: 216
--- Data for Name: cohort; Type: TABLE DATA; Schema: dse_advisory; Owner: postgres
---
-
-COPY dse_advisory.cohort (id, name) FROM stdin;
-1	2000
-2	2001
-3	2002
-4	2003
-5	2004
-6	2005
-7	2006
-8	2007
-10	2008
-11	2009
-12	2010
-13	2011
-14	2012
-15	2013
-16	2014
-17	2015
-18	2016
-19	2017
-20	2018
-21	2019
-22	2020
-23	2021
-24	2022
-25	2023
-26	2024
-27	2025
-\.
-
-
---
--- TOC entry 3722 (class 0 OID 16443)
--- Dependencies: 219
--- Data for Name: coordinator; Type: TABLE DATA; Schema: dse_advisory; Owner: postgres
---
-
-COPY dse_advisory.coordinator (username, password, firstname, lastname, is_active, salt) FROM stdin;
-admin	$2b$12$trC9dOW6nliu361IGToI0e37NOb6hnkAMYnvXmOdftQnWrRa.VDK6	Stefano	Montanelli	t	$2b$12$trC9dOW6nliu361IGToI0e
-\.
-
-
---
--- TOC entry 3729 (class 0 OID 16478)
--- Dependencies: 226
--- Data for Name: document; Type: TABLE DATA; Schema: dse_advisory; Owner: postgres
---
-
-COPY dse_advisory.document (id, link, description, upload_time, is_deleted) FROM stdin;
-16	/Users/lucascarantino/Documents/dse_advisory/uploaded_docs/ASCII_20241024_172016.pdf	\N	2024-10-24 17:20:16.133307	\N
-17	/Users/lucascarantino/Documents/dse_advisory/uploaded_docs/ASCII_2_20241024_172024.pdf	\N	2024-10-24 17:20:24.186116	\N
-18	/Users/lucascarantino/Documents/dse_advisory/uploaded_docs/pianoDiStudio2023_2024_20241024_172637.pdf	\N	2024-10-24 17:26:37.09982	\N
-20	/Users/lucascarantino/Documents/dse_advisory/uploaded_docs/Diagramma di flusso autenticazione CAS_20241025_183835.pdf	\N	2024-10-25 18:38:35.092723	\N
-21	/Users/lucascarantino/Documents/dse_advisory/uploaded_docs/Modello ER tesi_20241025_184318.pdf	\N	2024-10-25 18:43:18.35231	\N
-22	/Users/lucascarantino/Documents/dse_advisory/uploaded_docs/ASCII_2_20241107_113317.pdf	\N	2024-11-07 11:33:17.935607	\N
-\.
-
-
---
--- TOC entry 3724 (class 0 OID 16449)
--- Dependencies: 221
--- Data for Name: news; Type: TABLE DATA; Schema: dse_advisory; Owner: postgres
---
-
-COPY dse_advisory.news (id, subject, content, is_deleted, publication_date, expiration_date) FROM stdin;
-33	prova di expiration date	contenuto prova di expiration date	f	2024-10-21 19:01:31.33318	2024-10-30
-32	Prova upload file multipli editato x4	Contenuto prova di file multipli editato x4	f	2024-10-09 19:08:21.998865	\N
-34	prova subject	Ciao a tutti	f	2024-11-07 11:28:33.908601	\N
-\.
-
-
---
--- TOC entry 3739 (class 0 OID 16824)
--- Dependencies: 237
--- Data for Name: news_doc; Type: TABLE DATA; Schema: dse_advisory; Owner: postgres
---
-
-COPY dse_advisory.news_doc (news_id, document_id) FROM stdin;
-33	16
-33	17
-33	18
-33	20
-33	21
-34	22
-\.
-
-
---
--- TOC entry 3727 (class 0 OID 16460)
--- Dependencies: 224
--- Data for Name: news_target; Type: TABLE DATA; Schema: dse_advisory; Owner: postgres
---
-
-COPY dse_advisory.news_target (cohort_id, news_id) FROM stdin;
-23	33
-22	33
-1	32
-2	32
-3	32
-4	32
-5	32
-6	32
-7	32
-8	32
-10	32
-11	32
-12	32
-13	32
-14	32
-15	32
-16	32
-17	32
-18	32
-19	32
-20	32
-21	32
-22	32
-23	32
-24	32
-25	32
-26	32
-27	32
-22	34
-23	34
-\.
-
-
---
--- TOC entry 3738 (class 0 OID 16695)
--- Dependencies: 236
--- Data for Name: staging; Type: TABLE DATA; Schema: dse_advisory; Owner: postgres
---
-
-COPY dse_advisory.staging (username, token, user_type) FROM stdin;
-lucas.inter@hotmail.it	9dc8ba0d-8cc7-4c56-9643-c899981cdf20	student
-ariannaconverti@gmail.com	610b3e2a-e438-436f-bec7-0a80121adac0	student
-\.
-
-
---
--- TOC entry 3720 (class 0 OID 16428)
--- Dependencies: 217
--- Data for Name: student; Type: TABLE DATA; Schema: dse_advisory; Owner: postgres
---
-
-COPY dse_advisory.student (serial_id, username, password, firstname, lastname, is_active, cohort_id, salt) FROM stdin;
-874026	luca.scarantino@studenti.unimi.it	$2b$12$9JnjwsBEFXdtBC5LcmMJH.fBOUuET6b/2y7O0LlXg0GabhEX8c4/W	Luca	Scarantino	t	17	$2b$12$9JnjwsBEFXdtBC5LcmMJH.
-090308	luca.scarantino@unimi.it	$2b$12$AgljJ9ebrLJp6fEN4NEgXOjgvkaFiEmLD0oFfDAuy7aSAAKd5B3aK	Luca	Scara	t	19	$2b$12$AgljJ9ebrLJp6fEN4NEgXO
-123456	paperina	$2b$12$3zzBOYCaDKjiTOjLZsg2E.VaJc2CGozxbxaXYRrl16yPmoD2/XDY2	Paperina	Di Paperino	f	\N	$2b$12$3zzBOYCaDKjiTOjLZsg2E.
-345678	pluto	$2b$12$wpGdmTjxf/X3w6ZFv4wEBeD1dSo..fuKB/HhDaOGbnSbSRLTZ53Hu	Pluto	Plutone	f	\N	$2b$12$wpGdmTjxf/X3w6ZFv4wEBe
-789012	paperino	$2b$12$XbaqjXzorDnM43B/hcxxM.HwWI.dQglW/QAXBU0G/kGstTJzUeW16	Paolino	Paperino	f	\N	$2b$12$XbaqjXzorDnM43B/hcxxM.
-\.
-
-
---
--- TOC entry 3721 (class 0 OID 16438)
--- Dependencies: 218
--- Data for Name: teacher; Type: TABLE DATA; Schema: dse_advisory; Owner: postgres
---
-
-COPY dse_advisory.teacher (username, password, firstname, lastname, is_active, institution, salt) FROM stdin;
-mario	$2b$12$.5JWZjUR21DUahz2p9p5vOmNW5li85QCjvNOa.1.6pdbRTNqPWDl.	Mario	Rossi	f	\N	$2b$12$.5JWZjUR21DUahz2p9p5vO
-luca.scara03@gmail.com	$2b$12$Rl6mAmRdk/yMJhI5Iac2Suj8U8aR5m0OGUB3tNKNEdJQrxX3ajTAe	Roberto	Scarantino	t	\N	$2b$12$Rl6mAmRdk/yMJhI5Iac2Su
-admin	\N	Stefano	Montanelli	t	\N	\N
-\.
-
-
---
--- TOC entry 3731 (class 0 OID 16571)
--- Dependencies: 228
--- Data for Name: thesis; Type: TABLE DATA; Schema: dse_advisory; Owner: postgres
---
-
-COPY dse_advisory.thesis (id, assignmentdate, discussiondate, is_deleted, title, student_username, supervisor, co_supervisor) FROM stdin;
-6	2024-12-02	\N	f	prova con nuovo assetto del database	luca.scarantino@studenti.unimi.it	admin	luca.scara03@gmail.com
-\.
-
-
---
--- TOC entry 3734 (class 0 OID 16594)
--- Dependencies: 231
--- Data for Name: thesis_doc; Type: TABLE DATA; Schema: dse_advisory; Owner: postgres
---
-
-COPY dse_advisory.thesis_doc (document_id, thesis_id) FROM stdin;
-\.
-
-
---
--- TOC entry 3737 (class 0 OID 16613)
--- Dependencies: 234
--- Data for Name: thesis_proposal; Type: TABLE DATA; Schema: dse_advisory; Owner: postgres
---
-
-COPY dse_advisory.thesis_proposal (id, title, description, is_deleted, keys, duration, expiration, thesis_id, teacher) FROM stdin;
-5	prova di tesi con database modificato	questa prova di tesi serve per vedere se funziona tutto correttamente	f	prova correttamente	50	\N	\N	admin
-\.
-
-
---
--- TOC entry 3755 (class 0 OID 0)
--- Dependencies: 215
--- Name: cohort_id_seq; Type: SEQUENCE SET; Schema: dse_advisory; Owner: postgres
---
-
-SELECT pg_catalog.setval('dse_advisory.cohort_id_seq', 27, true);
-
-
---
--- TOC entry 3756 (class 0 OID 0)
--- Dependencies: 225
--- Name: document_id_seq; Type: SEQUENCE SET; Schema: dse_advisory; Owner: postgres
---
-
-SELECT pg_catalog.setval('dse_advisory.document_id_seq', 26, true);
-
-
---
--- TOC entry 3757 (class 0 OID 0)
--- Dependencies: 220
--- Name: news_id_seq; Type: SEQUENCE SET; Schema: dse_advisory; Owner: postgres
---
-
-SELECT pg_catalog.setval('dse_advisory.news_id_seq', 34, true);
-
-
---
--- TOC entry 3758 (class 0 OID 0)
--- Dependencies: 222
--- Name: news_target_cohort_id_seq; Type: SEQUENCE SET; Schema: dse_advisory; Owner: postgres
---
-
-SELECT pg_catalog.setval('dse_advisory.news_target_cohort_id_seq', 1, false);
-
-
---
--- TOC entry 3759 (class 0 OID 0)
--- Dependencies: 223
--- Name: news_target_news_id_seq; Type: SEQUENCE SET; Schema: dse_advisory; Owner: postgres
---
-
-SELECT pg_catalog.setval('dse_advisory.news_target_news_id_seq', 1, false);
-
-
---
--- TOC entry 3760 (class 0 OID 0)
--- Dependencies: 229
--- Name: thesis_doc_document_id_seq; Type: SEQUENCE SET; Schema: dse_advisory; Owner: postgres
---
-
-SELECT pg_catalog.setval('dse_advisory.thesis_doc_document_id_seq', 1, false);
-
-
---
--- TOC entry 3761 (class 0 OID 0)
--- Dependencies: 230
--- Name: thesis_doc_thesis_id_seq; Type: SEQUENCE SET; Schema: dse_advisory; Owner: postgres
---
-
-SELECT pg_catalog.setval('dse_advisory.thesis_doc_thesis_id_seq', 1, false);
-
-
---
--- TOC entry 3762 (class 0 OID 0)
--- Dependencies: 227
--- Name: thesis_id_seq; Type: SEQUENCE SET; Schema: dse_advisory; Owner: postgres
---
-
-SELECT pg_catalog.setval('dse_advisory.thesis_id_seq', 6, true);
-
-
---
--- TOC entry 3763 (class 0 OID 0)
--- Dependencies: 232
--- Name: thesis_proposal_id_seq; Type: SEQUENCE SET; Schema: dse_advisory; Owner: postgres
---
-
-SELECT pg_catalog.setval('dse_advisory.thesis_proposal_id_seq', 5, true);
-
-
---
--- TOC entry 3764 (class 0 OID 0)
--- Dependencies: 233
--- Name: thesis_proposal_thesis_id_seq; Type: SEQUENCE SET; Schema: dse_advisory; Owner: postgres
---
-
-SELECT pg_catalog.setval('dse_advisory.thesis_proposal_thesis_id_seq', 1, true);
 
 
 --
@@ -1107,7 +813,7 @@ ALTER TABLE ONLY dse_advisory.thesis
     ADD CONSTRAINT thesis_supervisor_fkey FOREIGN KEY (supervisor) REFERENCES dse_advisory.teacher(username);
 
 
--- Completed on 2024-12-02 19:55:54 CET
+-- Completed on 2025-01-09 16:53:45 CET
 
 --
 -- PostgreSQL database dump complete
