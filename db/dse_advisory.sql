@@ -5,7 +5,7 @@
 -- Dumped from database version 16.6 (Postgres.app)
 -- Dumped by pg_dump version 17.0
 
--- Started on 2025-01-09 16:56:32 CET
+-- Started on 2025-01-16 13:14:36 CET
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -21,13 +21,11 @@ SET row_security = off;
 
 --
 -- TOC entry 5 (class 2615 OID 16392)
--- Name: dse_advisory; Type: SCHEMA; Schema: -; Owner: admin
+-- Name: dse_advisory; Type: SCHEMA; Schema: -; Owner: -
 --
 
 CREATE SCHEMA dse_advisory;
 
-
-ALTER SCHEMA dse_advisory OWNER TO admin;
 
 SET default_tablespace = '';
 
@@ -35,7 +33,7 @@ SET default_table_access_method = heap;
 
 --
 -- TOC entry 216 (class 1259 OID 16402)
--- Name: cohort; Type: TABLE; Schema: dse_advisory; Owner: postgres
+-- Name: cohort; Type: TABLE; Schema: dse_advisory; Owner: -
 --
 
 CREATE TABLE dse_advisory.cohort (
@@ -44,11 +42,9 @@ CREATE TABLE dse_advisory.cohort (
 );
 
 
-ALTER TABLE dse_advisory.cohort OWNER TO postgres;
-
 --
 -- TOC entry 215 (class 1259 OID 16401)
--- Name: cohort_id_seq; Type: SEQUENCE; Schema: dse_advisory; Owner: postgres
+-- Name: cohort_id_seq; Type: SEQUENCE; Schema: dse_advisory; Owner: -
 --
 
 CREATE SEQUENCE dse_advisory.cohort_id_seq
@@ -60,12 +56,10 @@ CREATE SEQUENCE dse_advisory.cohort_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE dse_advisory.cohort_id_seq OWNER TO postgres;
-
 --
 -- TOC entry 3723 (class 0 OID 0)
 -- Dependencies: 215
--- Name: cohort_id_seq; Type: SEQUENCE OWNED BY; Schema: dse_advisory; Owner: postgres
+-- Name: cohort_id_seq; Type: SEQUENCE OWNED BY; Schema: dse_advisory; Owner: -
 --
 
 ALTER SEQUENCE dse_advisory.cohort_id_seq OWNED BY dse_advisory.cohort.id;
@@ -73,7 +67,7 @@ ALTER SEQUENCE dse_advisory.cohort_id_seq OWNED BY dse_advisory.cohort.id;
 
 --
 -- TOC entry 219 (class 1259 OID 16443)
--- Name: coordinator; Type: TABLE; Schema: dse_advisory; Owner: postgres
+-- Name: coordinator; Type: TABLE; Schema: dse_advisory; Owner: -
 --
 
 CREATE TABLE dse_advisory.coordinator (
@@ -86,11 +80,9 @@ CREATE TABLE dse_advisory.coordinator (
 );
 
 
-ALTER TABLE dse_advisory.coordinator OWNER TO postgres;
-
 --
 -- TOC entry 226 (class 1259 OID 16478)
--- Name: document; Type: TABLE; Schema: dse_advisory; Owner: postgres
+-- Name: document; Type: TABLE; Schema: dse_advisory; Owner: -
 --
 
 CREATE TABLE dse_advisory.document (
@@ -102,11 +94,9 @@ CREATE TABLE dse_advisory.document (
 );
 
 
-ALTER TABLE dse_advisory.document OWNER TO postgres;
-
 --
 -- TOC entry 225 (class 1259 OID 16477)
--- Name: document_id_seq; Type: SEQUENCE; Schema: dse_advisory; Owner: postgres
+-- Name: document_id_seq; Type: SEQUENCE; Schema: dse_advisory; Owner: -
 --
 
 CREATE SEQUENCE dse_advisory.document_id_seq
@@ -118,12 +108,10 @@ CREATE SEQUENCE dse_advisory.document_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE dse_advisory.document_id_seq OWNER TO postgres;
-
 --
 -- TOC entry 3724 (class 0 OID 0)
 -- Dependencies: 225
--- Name: document_id_seq; Type: SEQUENCE OWNED BY; Schema: dse_advisory; Owner: postgres
+-- Name: document_id_seq; Type: SEQUENCE OWNED BY; Schema: dse_advisory; Owner: -
 --
 
 ALTER SEQUENCE dse_advisory.document_id_seq OWNED BY dse_advisory.document.id;
@@ -131,7 +119,7 @@ ALTER SEQUENCE dse_advisory.document_id_seq OWNED BY dse_advisory.document.id;
 
 --
 -- TOC entry 221 (class 1259 OID 16449)
--- Name: news; Type: TABLE; Schema: dse_advisory; Owner: postgres
+-- Name: news; Type: TABLE; Schema: dse_advisory; Owner: -
 --
 
 CREATE TABLE dse_advisory.news (
@@ -144,11 +132,9 @@ CREATE TABLE dse_advisory.news (
 );
 
 
-ALTER TABLE dse_advisory.news OWNER TO postgres;
-
 --
 -- TOC entry 237 (class 1259 OID 16824)
--- Name: news_doc; Type: TABLE; Schema: dse_advisory; Owner: postgres
+-- Name: news_doc; Type: TABLE; Schema: dse_advisory; Owner: -
 --
 
 CREATE TABLE dse_advisory.news_doc (
@@ -157,11 +143,9 @@ CREATE TABLE dse_advisory.news_doc (
 );
 
 
-ALTER TABLE dse_advisory.news_doc OWNER TO postgres;
-
 --
 -- TOC entry 220 (class 1259 OID 16448)
--- Name: news_id_seq; Type: SEQUENCE; Schema: dse_advisory; Owner: postgres
+-- Name: news_id_seq; Type: SEQUENCE; Schema: dse_advisory; Owner: -
 --
 
 CREATE SEQUENCE dse_advisory.news_id_seq
@@ -173,12 +157,10 @@ CREATE SEQUENCE dse_advisory.news_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE dse_advisory.news_id_seq OWNER TO postgres;
-
 --
 -- TOC entry 3725 (class 0 OID 0)
 -- Dependencies: 220
--- Name: news_id_seq; Type: SEQUENCE OWNED BY; Schema: dse_advisory; Owner: postgres
+-- Name: news_id_seq; Type: SEQUENCE OWNED BY; Schema: dse_advisory; Owner: -
 --
 
 ALTER SEQUENCE dse_advisory.news_id_seq OWNED BY dse_advisory.news.id;
@@ -186,7 +168,7 @@ ALTER SEQUENCE dse_advisory.news_id_seq OWNED BY dse_advisory.news.id;
 
 --
 -- TOC entry 224 (class 1259 OID 16460)
--- Name: news_target; Type: TABLE; Schema: dse_advisory; Owner: postgres
+-- Name: news_target; Type: TABLE; Schema: dse_advisory; Owner: -
 --
 
 CREATE TABLE dse_advisory.news_target (
@@ -195,11 +177,9 @@ CREATE TABLE dse_advisory.news_target (
 );
 
 
-ALTER TABLE dse_advisory.news_target OWNER TO postgres;
-
 --
 -- TOC entry 222 (class 1259 OID 16458)
--- Name: news_target_cohort_id_seq; Type: SEQUENCE; Schema: dse_advisory; Owner: postgres
+-- Name: news_target_cohort_id_seq; Type: SEQUENCE; Schema: dse_advisory; Owner: -
 --
 
 CREATE SEQUENCE dse_advisory.news_target_cohort_id_seq
@@ -211,12 +191,10 @@ CREATE SEQUENCE dse_advisory.news_target_cohort_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE dse_advisory.news_target_cohort_id_seq OWNER TO postgres;
-
 --
 -- TOC entry 3726 (class 0 OID 0)
 -- Dependencies: 222
--- Name: news_target_cohort_id_seq; Type: SEQUENCE OWNED BY; Schema: dse_advisory; Owner: postgres
+-- Name: news_target_cohort_id_seq; Type: SEQUENCE OWNED BY; Schema: dse_advisory; Owner: -
 --
 
 ALTER SEQUENCE dse_advisory.news_target_cohort_id_seq OWNED BY dse_advisory.news_target.cohort_id;
@@ -224,7 +202,7 @@ ALTER SEQUENCE dse_advisory.news_target_cohort_id_seq OWNED BY dse_advisory.news
 
 --
 -- TOC entry 223 (class 1259 OID 16459)
--- Name: news_target_news_id_seq; Type: SEQUENCE; Schema: dse_advisory; Owner: postgres
+-- Name: news_target_news_id_seq; Type: SEQUENCE; Schema: dse_advisory; Owner: -
 --
 
 CREATE SEQUENCE dse_advisory.news_target_news_id_seq
@@ -236,12 +214,10 @@ CREATE SEQUENCE dse_advisory.news_target_news_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE dse_advisory.news_target_news_id_seq OWNER TO postgres;
-
 --
 -- TOC entry 3727 (class 0 OID 0)
 -- Dependencies: 223
--- Name: news_target_news_id_seq; Type: SEQUENCE OWNED BY; Schema: dse_advisory; Owner: postgres
+-- Name: news_target_news_id_seq; Type: SEQUENCE OWNED BY; Schema: dse_advisory; Owner: -
 --
 
 ALTER SEQUENCE dse_advisory.news_target_news_id_seq OWNED BY dse_advisory.news_target.news_id;
@@ -249,7 +225,7 @@ ALTER SEQUENCE dse_advisory.news_target_news_id_seq OWNED BY dse_advisory.news_t
 
 --
 -- TOC entry 236 (class 1259 OID 16695)
--- Name: staging; Type: TABLE; Schema: dse_advisory; Owner: postgres
+-- Name: staging; Type: TABLE; Schema: dse_advisory; Owner: -
 --
 
 CREATE TABLE dse_advisory.staging (
@@ -259,11 +235,9 @@ CREATE TABLE dse_advisory.staging (
 );
 
 
-ALTER TABLE dse_advisory.staging OWNER TO postgres;
-
 --
 -- TOC entry 217 (class 1259 OID 16428)
--- Name: student; Type: TABLE; Schema: dse_advisory; Owner: postgres
+-- Name: student; Type: TABLE; Schema: dse_advisory; Owner: -
 --
 
 CREATE TABLE dse_advisory.student (
@@ -278,11 +252,9 @@ CREATE TABLE dse_advisory.student (
 );
 
 
-ALTER TABLE dse_advisory.student OWNER TO postgres;
-
 --
 -- TOC entry 218 (class 1259 OID 16438)
--- Name: teacher; Type: TABLE; Schema: dse_advisory; Owner: postgres
+-- Name: teacher; Type: TABLE; Schema: dse_advisory; Owner: -
 --
 
 CREATE TABLE dse_advisory.teacher (
@@ -296,11 +268,9 @@ CREATE TABLE dse_advisory.teacher (
 );
 
 
-ALTER TABLE dse_advisory.teacher OWNER TO postgres;
-
 --
 -- TOC entry 228 (class 1259 OID 16571)
--- Name: thesis; Type: TABLE; Schema: dse_advisory; Owner: postgres
+-- Name: thesis; Type: TABLE; Schema: dse_advisory; Owner: -
 --
 
 CREATE TABLE dse_advisory.thesis (
@@ -315,11 +285,9 @@ CREATE TABLE dse_advisory.thesis (
 );
 
 
-ALTER TABLE dse_advisory.thesis OWNER TO postgres;
-
 --
 -- TOC entry 231 (class 1259 OID 16594)
--- Name: thesis_doc; Type: TABLE; Schema: dse_advisory; Owner: postgres
+-- Name: thesis_doc; Type: TABLE; Schema: dse_advisory; Owner: -
 --
 
 CREATE TABLE dse_advisory.thesis_doc (
@@ -328,11 +296,9 @@ CREATE TABLE dse_advisory.thesis_doc (
 );
 
 
-ALTER TABLE dse_advisory.thesis_doc OWNER TO postgres;
-
 --
 -- TOC entry 229 (class 1259 OID 16592)
--- Name: thesis_doc_document_id_seq; Type: SEQUENCE; Schema: dse_advisory; Owner: postgres
+-- Name: thesis_doc_document_id_seq; Type: SEQUENCE; Schema: dse_advisory; Owner: -
 --
 
 CREATE SEQUENCE dse_advisory.thesis_doc_document_id_seq
@@ -344,12 +310,10 @@ CREATE SEQUENCE dse_advisory.thesis_doc_document_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE dse_advisory.thesis_doc_document_id_seq OWNER TO postgres;
-
 --
 -- TOC entry 3728 (class 0 OID 0)
 -- Dependencies: 229
--- Name: thesis_doc_document_id_seq; Type: SEQUENCE OWNED BY; Schema: dse_advisory; Owner: postgres
+-- Name: thesis_doc_document_id_seq; Type: SEQUENCE OWNED BY; Schema: dse_advisory; Owner: -
 --
 
 ALTER SEQUENCE dse_advisory.thesis_doc_document_id_seq OWNED BY dse_advisory.thesis_doc.document_id;
@@ -357,7 +321,7 @@ ALTER SEQUENCE dse_advisory.thesis_doc_document_id_seq OWNED BY dse_advisory.the
 
 --
 -- TOC entry 230 (class 1259 OID 16593)
--- Name: thesis_doc_thesis_id_seq; Type: SEQUENCE; Schema: dse_advisory; Owner: postgres
+-- Name: thesis_doc_thesis_id_seq; Type: SEQUENCE; Schema: dse_advisory; Owner: -
 --
 
 CREATE SEQUENCE dse_advisory.thesis_doc_thesis_id_seq
@@ -369,12 +333,10 @@ CREATE SEQUENCE dse_advisory.thesis_doc_thesis_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE dse_advisory.thesis_doc_thesis_id_seq OWNER TO postgres;
-
 --
 -- TOC entry 3729 (class 0 OID 0)
 -- Dependencies: 230
--- Name: thesis_doc_thesis_id_seq; Type: SEQUENCE OWNED BY; Schema: dse_advisory; Owner: postgres
+-- Name: thesis_doc_thesis_id_seq; Type: SEQUENCE OWNED BY; Schema: dse_advisory; Owner: -
 --
 
 ALTER SEQUENCE dse_advisory.thesis_doc_thesis_id_seq OWNED BY dse_advisory.thesis_doc.thesis_id;
@@ -382,7 +344,7 @@ ALTER SEQUENCE dse_advisory.thesis_doc_thesis_id_seq OWNED BY dse_advisory.thesi
 
 --
 -- TOC entry 227 (class 1259 OID 16570)
--- Name: thesis_id_seq; Type: SEQUENCE; Schema: dse_advisory; Owner: postgres
+-- Name: thesis_id_seq; Type: SEQUENCE; Schema: dse_advisory; Owner: -
 --
 
 CREATE SEQUENCE dse_advisory.thesis_id_seq
@@ -394,12 +356,10 @@ CREATE SEQUENCE dse_advisory.thesis_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE dse_advisory.thesis_id_seq OWNER TO postgres;
-
 --
 -- TOC entry 3730 (class 0 OID 0)
 -- Dependencies: 227
--- Name: thesis_id_seq; Type: SEQUENCE OWNED BY; Schema: dse_advisory; Owner: postgres
+-- Name: thesis_id_seq; Type: SEQUENCE OWNED BY; Schema: dse_advisory; Owner: -
 --
 
 ALTER SEQUENCE dse_advisory.thesis_id_seq OWNED BY dse_advisory.thesis.id;
@@ -407,7 +367,7 @@ ALTER SEQUENCE dse_advisory.thesis_id_seq OWNED BY dse_advisory.thesis.id;
 
 --
 -- TOC entry 234 (class 1259 OID 16613)
--- Name: thesis_proposal; Type: TABLE; Schema: dse_advisory; Owner: postgres
+-- Name: thesis_proposal; Type: TABLE; Schema: dse_advisory; Owner: -
 --
 
 CREATE TABLE dse_advisory.thesis_proposal (
@@ -423,11 +383,9 @@ CREATE TABLE dse_advisory.thesis_proposal (
 );
 
 
-ALTER TABLE dse_advisory.thesis_proposal OWNER TO postgres;
-
 --
 -- TOC entry 232 (class 1259 OID 16611)
--- Name: thesis_proposal_id_seq; Type: SEQUENCE; Schema: dse_advisory; Owner: postgres
+-- Name: thesis_proposal_id_seq; Type: SEQUENCE; Schema: dse_advisory; Owner: -
 --
 
 CREATE SEQUENCE dse_advisory.thesis_proposal_id_seq
@@ -439,12 +397,10 @@ CREATE SEQUENCE dse_advisory.thesis_proposal_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE dse_advisory.thesis_proposal_id_seq OWNER TO postgres;
-
 --
 -- TOC entry 3731 (class 0 OID 0)
 -- Dependencies: 232
--- Name: thesis_proposal_id_seq; Type: SEQUENCE OWNED BY; Schema: dse_advisory; Owner: postgres
+-- Name: thesis_proposal_id_seq; Type: SEQUENCE OWNED BY; Schema: dse_advisory; Owner: -
 --
 
 ALTER SEQUENCE dse_advisory.thesis_proposal_id_seq OWNED BY dse_advisory.thesis_proposal.id;
@@ -452,7 +408,7 @@ ALTER SEQUENCE dse_advisory.thesis_proposal_id_seq OWNED BY dse_advisory.thesis_
 
 --
 -- TOC entry 233 (class 1259 OID 16612)
--- Name: thesis_proposal_thesis_id_seq; Type: SEQUENCE; Schema: dse_advisory; Owner: postgres
+-- Name: thesis_proposal_thesis_id_seq; Type: SEQUENCE; Schema: dse_advisory; Owner: -
 --
 
 CREATE SEQUENCE dse_advisory.thesis_proposal_thesis_id_seq
@@ -464,12 +420,10 @@ CREATE SEQUENCE dse_advisory.thesis_proposal_thesis_id_seq
     CACHE 1;
 
 
-ALTER SEQUENCE dse_advisory.thesis_proposal_thesis_id_seq OWNER TO postgres;
-
 --
 -- TOC entry 3732 (class 0 OID 0)
 -- Dependencies: 233
--- Name: thesis_proposal_thesis_id_seq; Type: SEQUENCE OWNED BY; Schema: dse_advisory; Owner: postgres
+-- Name: thesis_proposal_thesis_id_seq; Type: SEQUENCE OWNED BY; Schema: dse_advisory; Owner: -
 --
 
 ALTER SEQUENCE dse_advisory.thesis_proposal_thesis_id_seq OWNED BY dse_advisory.thesis_proposal.thesis_id;
@@ -477,7 +431,7 @@ ALTER SEQUENCE dse_advisory.thesis_proposal_thesis_id_seq OWNED BY dse_advisory.
 
 --
 -- TOC entry 235 (class 1259 OID 16678)
--- Name: user_login_credentials; Type: VIEW; Schema: dse_advisory; Owner: postgres
+-- Name: user_login_credentials; Type: VIEW; Schema: dse_advisory; Owner: -
 --
 
 CREATE VIEW dse_advisory.user_login_credentials AS
@@ -532,11 +486,9 @@ CREATE VIEW dse_advisory.user_login_credentials AS
    FROM unique_users;
 
 
-ALTER VIEW dse_advisory.user_login_credentials OWNER TO postgres;
-
 --
 -- TOC entry 3522 (class 2604 OID 16405)
--- Name: cohort id; Type: DEFAULT; Schema: dse_advisory; Owner: postgres
+-- Name: cohort id; Type: DEFAULT; Schema: dse_advisory; Owner: -
 --
 
 ALTER TABLE ONLY dse_advisory.cohort ALTER COLUMN id SET DEFAULT nextval('dse_advisory.cohort_id_seq'::regclass);
@@ -544,7 +496,7 @@ ALTER TABLE ONLY dse_advisory.cohort ALTER COLUMN id SET DEFAULT nextval('dse_ad
 
 --
 -- TOC entry 3531 (class 2604 OID 16481)
--- Name: document id; Type: DEFAULT; Schema: dse_advisory; Owner: postgres
+-- Name: document id; Type: DEFAULT; Schema: dse_advisory; Owner: -
 --
 
 ALTER TABLE ONLY dse_advisory.document ALTER COLUMN id SET DEFAULT nextval('dse_advisory.document_id_seq'::regclass);
@@ -552,7 +504,7 @@ ALTER TABLE ONLY dse_advisory.document ALTER COLUMN id SET DEFAULT nextval('dse_
 
 --
 -- TOC entry 3526 (class 2604 OID 16452)
--- Name: news id; Type: DEFAULT; Schema: dse_advisory; Owner: postgres
+-- Name: news id; Type: DEFAULT; Schema: dse_advisory; Owner: -
 --
 
 ALTER TABLE ONLY dse_advisory.news ALTER COLUMN id SET DEFAULT nextval('dse_advisory.news_id_seq'::regclass);
@@ -560,7 +512,7 @@ ALTER TABLE ONLY dse_advisory.news ALTER COLUMN id SET DEFAULT nextval('dse_advi
 
 --
 -- TOC entry 3529 (class 2604 OID 16463)
--- Name: news_target cohort_id; Type: DEFAULT; Schema: dse_advisory; Owner: postgres
+-- Name: news_target cohort_id; Type: DEFAULT; Schema: dse_advisory; Owner: -
 --
 
 ALTER TABLE ONLY dse_advisory.news_target ALTER COLUMN cohort_id SET DEFAULT nextval('dse_advisory.news_target_cohort_id_seq'::regclass);
@@ -568,7 +520,7 @@ ALTER TABLE ONLY dse_advisory.news_target ALTER COLUMN cohort_id SET DEFAULT nex
 
 --
 -- TOC entry 3530 (class 2604 OID 16464)
--- Name: news_target news_id; Type: DEFAULT; Schema: dse_advisory; Owner: postgres
+-- Name: news_target news_id; Type: DEFAULT; Schema: dse_advisory; Owner: -
 --
 
 ALTER TABLE ONLY dse_advisory.news_target ALTER COLUMN news_id SET DEFAULT nextval('dse_advisory.news_target_news_id_seq'::regclass);
@@ -576,7 +528,7 @@ ALTER TABLE ONLY dse_advisory.news_target ALTER COLUMN news_id SET DEFAULT nextv
 
 --
 -- TOC entry 3533 (class 2604 OID 16574)
--- Name: thesis id; Type: DEFAULT; Schema: dse_advisory; Owner: postgres
+-- Name: thesis id; Type: DEFAULT; Schema: dse_advisory; Owner: -
 --
 
 ALTER TABLE ONLY dse_advisory.thesis ALTER COLUMN id SET DEFAULT nextval('dse_advisory.thesis_id_seq'::regclass);
@@ -584,7 +536,7 @@ ALTER TABLE ONLY dse_advisory.thesis ALTER COLUMN id SET DEFAULT nextval('dse_ad
 
 --
 -- TOC entry 3535 (class 2604 OID 16597)
--- Name: thesis_doc document_id; Type: DEFAULT; Schema: dse_advisory; Owner: postgres
+-- Name: thesis_doc document_id; Type: DEFAULT; Schema: dse_advisory; Owner: -
 --
 
 ALTER TABLE ONLY dse_advisory.thesis_doc ALTER COLUMN document_id SET DEFAULT nextval('dse_advisory.thesis_doc_document_id_seq'::regclass);
@@ -592,7 +544,7 @@ ALTER TABLE ONLY dse_advisory.thesis_doc ALTER COLUMN document_id SET DEFAULT ne
 
 --
 -- TOC entry 3536 (class 2604 OID 16598)
--- Name: thesis_doc thesis_id; Type: DEFAULT; Schema: dse_advisory; Owner: postgres
+-- Name: thesis_doc thesis_id; Type: DEFAULT; Schema: dse_advisory; Owner: -
 --
 
 ALTER TABLE ONLY dse_advisory.thesis_doc ALTER COLUMN thesis_id SET DEFAULT nextval('dse_advisory.thesis_doc_thesis_id_seq'::regclass);
@@ -600,7 +552,7 @@ ALTER TABLE ONLY dse_advisory.thesis_doc ALTER COLUMN thesis_id SET DEFAULT next
 
 --
 -- TOC entry 3537 (class 2604 OID 16616)
--- Name: thesis_proposal id; Type: DEFAULT; Schema: dse_advisory; Owner: postgres
+-- Name: thesis_proposal id; Type: DEFAULT; Schema: dse_advisory; Owner: -
 --
 
 ALTER TABLE ONLY dse_advisory.thesis_proposal ALTER COLUMN id SET DEFAULT nextval('dse_advisory.thesis_proposal_id_seq'::regclass);
@@ -608,7 +560,7 @@ ALTER TABLE ONLY dse_advisory.thesis_proposal ALTER COLUMN id SET DEFAULT nextva
 
 --
 -- TOC entry 3540 (class 2606 OID 16407)
--- Name: cohort cohort_pkey; Type: CONSTRAINT; Schema: dse_advisory; Owner: postgres
+-- Name: cohort cohort_pkey; Type: CONSTRAINT; Schema: dse_advisory; Owner: -
 --
 
 ALTER TABLE ONLY dse_advisory.cohort
@@ -617,7 +569,7 @@ ALTER TABLE ONLY dse_advisory.cohort
 
 --
 -- TOC entry 3546 (class 2606 OID 16447)
--- Name: coordinator coordinator_pkey; Type: CONSTRAINT; Schema: dse_advisory; Owner: postgres
+-- Name: coordinator coordinator_pkey; Type: CONSTRAINT; Schema: dse_advisory; Owner: -
 --
 
 ALTER TABLE ONLY dse_advisory.coordinator
@@ -626,7 +578,7 @@ ALTER TABLE ONLY dse_advisory.coordinator
 
 --
 -- TOC entry 3552 (class 2606 OID 16486)
--- Name: document document_pkey; Type: CONSTRAINT; Schema: dse_advisory; Owner: postgres
+-- Name: document document_pkey; Type: CONSTRAINT; Schema: dse_advisory; Owner: -
 --
 
 ALTER TABLE ONLY dse_advisory.document
@@ -635,7 +587,7 @@ ALTER TABLE ONLY dse_advisory.document
 
 --
 -- TOC entry 3562 (class 2606 OID 16828)
--- Name: news_doc news_doc_pkey; Type: CONSTRAINT; Schema: dse_advisory; Owner: postgres
+-- Name: news_doc news_doc_pkey; Type: CONSTRAINT; Schema: dse_advisory; Owner: -
 --
 
 ALTER TABLE ONLY dse_advisory.news_doc
@@ -644,7 +596,7 @@ ALTER TABLE ONLY dse_advisory.news_doc
 
 --
 -- TOC entry 3548 (class 2606 OID 16457)
--- Name: news news_pkey; Type: CONSTRAINT; Schema: dse_advisory; Owner: postgres
+-- Name: news news_pkey; Type: CONSTRAINT; Schema: dse_advisory; Owner: -
 --
 
 ALTER TABLE ONLY dse_advisory.news
@@ -653,7 +605,7 @@ ALTER TABLE ONLY dse_advisory.news
 
 --
 -- TOC entry 3550 (class 2606 OID 16466)
--- Name: news_target news_target_pkey; Type: CONSTRAINT; Schema: dse_advisory; Owner: postgres
+-- Name: news_target news_target_pkey; Type: CONSTRAINT; Schema: dse_advisory; Owner: -
 --
 
 ALTER TABLE ONLY dse_advisory.news_target
@@ -662,7 +614,7 @@ ALTER TABLE ONLY dse_advisory.news_target
 
 --
 -- TOC entry 3560 (class 2606 OID 16840)
--- Name: staging staging_pkey; Type: CONSTRAINT; Schema: dse_advisory; Owner: postgres
+-- Name: staging staging_pkey; Type: CONSTRAINT; Schema: dse_advisory; Owner: -
 --
 
 ALTER TABLE ONLY dse_advisory.staging
@@ -671,7 +623,7 @@ ALTER TABLE ONLY dse_advisory.staging
 
 --
 -- TOC entry 3542 (class 2606 OID 16432)
--- Name: student student_pkey; Type: CONSTRAINT; Schema: dse_advisory; Owner: postgres
+-- Name: student student_pkey; Type: CONSTRAINT; Schema: dse_advisory; Owner: -
 --
 
 ALTER TABLE ONLY dse_advisory.student
@@ -680,7 +632,7 @@ ALTER TABLE ONLY dse_advisory.student
 
 --
 -- TOC entry 3544 (class 2606 OID 16442)
--- Name: teacher teacher_pkey; Type: CONSTRAINT; Schema: dse_advisory; Owner: postgres
+-- Name: teacher teacher_pkey; Type: CONSTRAINT; Schema: dse_advisory; Owner: -
 --
 
 ALTER TABLE ONLY dse_advisory.teacher
@@ -689,7 +641,7 @@ ALTER TABLE ONLY dse_advisory.teacher
 
 --
 -- TOC entry 3556 (class 2606 OID 16600)
--- Name: thesis_doc thesis_doc_pkey; Type: CONSTRAINT; Schema: dse_advisory; Owner: postgres
+-- Name: thesis_doc thesis_doc_pkey; Type: CONSTRAINT; Schema: dse_advisory; Owner: -
 --
 
 ALTER TABLE ONLY dse_advisory.thesis_doc
@@ -698,7 +650,7 @@ ALTER TABLE ONLY dse_advisory.thesis_doc
 
 --
 -- TOC entry 3554 (class 2606 OID 16576)
--- Name: thesis thesis_pkey; Type: CONSTRAINT; Schema: dse_advisory; Owner: postgres
+-- Name: thesis thesis_pkey; Type: CONSTRAINT; Schema: dse_advisory; Owner: -
 --
 
 ALTER TABLE ONLY dse_advisory.thesis
@@ -707,7 +659,7 @@ ALTER TABLE ONLY dse_advisory.thesis
 
 --
 -- TOC entry 3558 (class 2606 OID 16621)
--- Name: thesis_proposal thesis_proposal_pkey; Type: CONSTRAINT; Schema: dse_advisory; Owner: postgres
+-- Name: thesis_proposal thesis_proposal_pkey; Type: CONSTRAINT; Schema: dse_advisory; Owner: -
 --
 
 ALTER TABLE ONLY dse_advisory.thesis_proposal
@@ -716,7 +668,7 @@ ALTER TABLE ONLY dse_advisory.thesis_proposal
 
 --
 -- TOC entry 3572 (class 2606 OID 16834)
--- Name: news_doc news_doc_document_id_fkey; Type: FK CONSTRAINT; Schema: dse_advisory; Owner: postgres
+-- Name: news_doc news_doc_document_id_fkey; Type: FK CONSTRAINT; Schema: dse_advisory; Owner: -
 --
 
 ALTER TABLE ONLY dse_advisory.news_doc
@@ -725,7 +677,7 @@ ALTER TABLE ONLY dse_advisory.news_doc
 
 --
 -- TOC entry 3573 (class 2606 OID 16829)
--- Name: news_doc news_doc_news_id_fkey; Type: FK CONSTRAINT; Schema: dse_advisory; Owner: postgres
+-- Name: news_doc news_doc_news_id_fkey; Type: FK CONSTRAINT; Schema: dse_advisory; Owner: -
 --
 
 ALTER TABLE ONLY dse_advisory.news_doc
@@ -734,7 +686,7 @@ ALTER TABLE ONLY dse_advisory.news_doc
 
 --
 -- TOC entry 3564 (class 2606 OID 16467)
--- Name: news_target news_target_cohort_id_fkey; Type: FK CONSTRAINT; Schema: dse_advisory; Owner: postgres
+-- Name: news_target news_target_cohort_id_fkey; Type: FK CONSTRAINT; Schema: dse_advisory; Owner: -
 --
 
 ALTER TABLE ONLY dse_advisory.news_target
@@ -743,7 +695,7 @@ ALTER TABLE ONLY dse_advisory.news_target
 
 --
 -- TOC entry 3565 (class 2606 OID 16472)
--- Name: news_target news_target_news_id_fkey; Type: FK CONSTRAINT; Schema: dse_advisory; Owner: postgres
+-- Name: news_target news_target_news_id_fkey; Type: FK CONSTRAINT; Schema: dse_advisory; Owner: -
 --
 
 ALTER TABLE ONLY dse_advisory.news_target
@@ -752,7 +704,7 @@ ALTER TABLE ONLY dse_advisory.news_target
 
 --
 -- TOC entry 3563 (class 2606 OID 16433)
--- Name: student student_cohort_id_fkey; Type: FK CONSTRAINT; Schema: dse_advisory; Owner: postgres
+-- Name: student student_cohort_id_fkey; Type: FK CONSTRAINT; Schema: dse_advisory; Owner: -
 --
 
 ALTER TABLE ONLY dse_advisory.student
@@ -761,7 +713,7 @@ ALTER TABLE ONLY dse_advisory.student
 
 --
 -- TOC entry 3566 (class 2606 OID 16587)
--- Name: thesis thesis_co_supervisor_fkey; Type: FK CONSTRAINT; Schema: dse_advisory; Owner: postgres
+-- Name: thesis thesis_co_supervisor_fkey; Type: FK CONSTRAINT; Schema: dse_advisory; Owner: -
 --
 
 ALTER TABLE ONLY dse_advisory.thesis
@@ -770,7 +722,7 @@ ALTER TABLE ONLY dse_advisory.thesis
 
 --
 -- TOC entry 3568 (class 2606 OID 16858)
--- Name: thesis_doc thesis_doc_document_id_fkey; Type: FK CONSTRAINT; Schema: dse_advisory; Owner: postgres
+-- Name: thesis_doc thesis_doc_document_id_fkey; Type: FK CONSTRAINT; Schema: dse_advisory; Owner: -
 --
 
 ALTER TABLE ONLY dse_advisory.thesis_doc
@@ -779,7 +731,7 @@ ALTER TABLE ONLY dse_advisory.thesis_doc
 
 --
 -- TOC entry 3569 (class 2606 OID 16606)
--- Name: thesis_doc thesis_doc_thesis_id_fkey; Type: FK CONSTRAINT; Schema: dse_advisory; Owner: postgres
+-- Name: thesis_doc thesis_doc_thesis_id_fkey; Type: FK CONSTRAINT; Schema: dse_advisory; Owner: -
 --
 
 ALTER TABLE ONLY dse_advisory.thesis_doc
@@ -788,7 +740,7 @@ ALTER TABLE ONLY dse_advisory.thesis_doc
 
 --
 -- TOC entry 3570 (class 2606 OID 16627)
--- Name: thesis_proposal thesis_proposal_teacher_fkey; Type: FK CONSTRAINT; Schema: dse_advisory; Owner: postgres
+-- Name: thesis_proposal thesis_proposal_teacher_fkey; Type: FK CONSTRAINT; Schema: dse_advisory; Owner: -
 --
 
 ALTER TABLE ONLY dse_advisory.thesis_proposal
@@ -797,7 +749,7 @@ ALTER TABLE ONLY dse_advisory.thesis_proposal
 
 --
 -- TOC entry 3571 (class 2606 OID 16622)
--- Name: thesis_proposal thesis_proposal_thesis_id_fkey; Type: FK CONSTRAINT; Schema: dse_advisory; Owner: postgres
+-- Name: thesis_proposal thesis_proposal_thesis_id_fkey; Type: FK CONSTRAINT; Schema: dse_advisory; Owner: -
 --
 
 ALTER TABLE ONLY dse_advisory.thesis_proposal
@@ -806,14 +758,14 @@ ALTER TABLE ONLY dse_advisory.thesis_proposal
 
 --
 -- TOC entry 3567 (class 2606 OID 16582)
--- Name: thesis thesis_supervisor_fkey; Type: FK CONSTRAINT; Schema: dse_advisory; Owner: postgres
+-- Name: thesis thesis_supervisor_fkey; Type: FK CONSTRAINT; Schema: dse_advisory; Owner: -
 --
 
 ALTER TABLE ONLY dse_advisory.thesis
     ADD CONSTRAINT thesis_supervisor_fkey FOREIGN KEY (supervisor) REFERENCES dse_advisory.teacher(username);
 
 
--- Completed on 2025-01-09 16:56:32 CET
+-- Completed on 2025-01-16 13:14:36 CET
 
 --
 -- PostgreSQL database dump complete
