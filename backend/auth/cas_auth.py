@@ -77,7 +77,7 @@ def cas_login_callback():
             'lastname': user[3]
         }
         #session['user'] = user_data
-        access_token = create_access_token(identity=user_data)
+        access_token = create_access_token(identity=user_data['username'])
         return redirect(f'http://localhost:3000/cas_callback?username={username}&success=True')
     else:
         return redirect(f'http://localhost:3000/cas_callback?username={username}&success=False')  
@@ -104,7 +104,7 @@ def cas_login_confirmation():
             'lastname': user[3]
         }
         session['user'] = user_data
-        access_token = create_access_token(identity=user_data)
+        access_token = create_access_token(identity=user_data['username'])
         return jsonify({"user": user_data, "access_token": access_token, "success": True})
     else:
         return jsonify({"success": False})
