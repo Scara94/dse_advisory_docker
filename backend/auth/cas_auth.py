@@ -77,10 +77,11 @@ def cas_login_callback():
             'lastname': user[3]
         }
         #session['user'] = user_data
-        access_token = create_access_token(identity=user_data['username'])
-        return redirect(f'http://localhost:3000/cas_callback?username={username}&success=True')
+        #access_token = create_access_token(identity=user_data['username'])
+        frontend_base_url = os.getenv('FRONTEND_URL')
+        return redirect(f'{frontend_base_url}/cas_callback?username={username}&success=True')
     else:
-        return redirect(f'http://localhost:3000/cas_callback?username={username}&success=False')  
+        return redirect(f'{frontend_base_url}/cas_callback?username={username}&success=False')  
 
 @cas_auth.route('/cas_login_confirmation', methods=['GET'])
 def cas_login_confirmation():

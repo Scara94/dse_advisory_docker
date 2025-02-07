@@ -8,6 +8,7 @@ from flask_mail import Message
 import csv
 import io
 import re
+import os
 
 edit_profile = Blueprint('edit_profile', __name__)
 
@@ -139,7 +140,8 @@ def add_multiple_users():
 
                 # Proceed with the insertion
                 token = str(uuid.uuid4())
-                registration_url = f"http://localhost:3000/register?token={token}&userType={user_type}"
+                frontend_base_url = os.getenv('FRONTEND_URL')
+                registration_url = f"{frontend_base_url}/register?token={token}&userType={user_type}"
                 msg = Message("Complete your registration", recipients=[username])
                 msg.body = f"Please complete your registration by clicking the link: {registration_url}"
                 try:
