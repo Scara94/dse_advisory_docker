@@ -39,6 +39,8 @@ services:
     restart: always
     healthcheck:
       test: ["CMD-SHELL", "wget -nv -t1 --spider http://localhost || exit 1"]
+    networks:
+      - app-network
 
 
 networks:
