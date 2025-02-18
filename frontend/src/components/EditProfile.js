@@ -26,7 +26,7 @@ const EditProfile = () => {
         const hasLowerCase = /[a-z]/.test(newPassword);
         const hasNumbers = /[0-9]/.test(newPassword);
         const hasSpecialChars = /[!@#$%^&*(),.?":{}|<>]/.test(newPassword);
-        const isLongEnough = newPassword.length >= 6;
+        const isLongEnough = newPassword.length >= 8;
 
         return result.score >= minStrength && hasUpperCase && hasLowerCase && hasNumbers && hasSpecialChars && isLongEnough;
     };
@@ -87,7 +87,7 @@ const EditProfile = () => {
                                     <div className="mb-3">
                                         <label htmlFor="newPassword" className="form-label">New Password</label>
                                         <ul className="password-requirements">
-                                            <li>At least 6 characters</li>
+                                            <li>At least 8 characters</li>
                                             <li>Must contain uppercase and lowercase letters</li>
                                             <li>Must include at least one number</li>
                                             <li>Must contain at least one special character (e.g. !@$%^&*)</li>

@@ -69,6 +69,8 @@ def cas_login_callback():
     cur.close()
     conn.close()
 
+    frontend_base_url = os.getenv('FRONTEND_URL')
+    
     if user and user[4] == True:
         user_data = {
             'username': user[0],
@@ -78,7 +80,7 @@ def cas_login_callback():
         }
         #session['user'] = user_data
         #access_token = create_access_token(identity=user_data['username'])
-        frontend_base_url = os.getenv('FRONTEND_URL')
+        
         return redirect(f'{frontend_base_url}/cas_callback?username={username}&success=True')
     else:
         return redirect(f'{frontend_base_url}/cas_callback?username={username}&success=False')  
