@@ -43,6 +43,7 @@ def update_password():
             cursor.execute("update dse_advisory.teacher set password = %s, salt = %s where username = %s", (newPassword, salt, username))
         elif userType == 'coordinator':
             cursor.execute("update dse_advisory.coordinator set password = %s, salt = %s where username = %s", (newPassword, salt, username))
+            cursor.execute("update dse_advisory.teacher set password = %s, salt = %s where username = %s", (newPassword, salt, username))
         else:
             return jsonify({'error': 'Invalid user type'}), 400
         
